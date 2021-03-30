@@ -3,7 +3,76 @@ from time import sleep
 from driver_shortcuts import *
 from selenium.webdriver.common.keys import Keys
 
+from random import randint, uniform
+
 # store date globally
+def vital(time):
+    # SETUP
+    # hit add button and wait for pop up
+    standard_click("addVitalSign", mode=id)
+    sleep(2)
+
+    # TIME
+    # enter time (be sure to distinguish am and pm)
+    time_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(2) > span > span > input"
+
+    clear_and_enter_keys(time_css, time)
+
+    # BP
+    sys_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(4) > span > span > input.k-formatted-value.k-input"
+
+    sys_val = str(randint(100, 115))
+    clear_and_enter_keys(sys_css, sys)
+
+    dia_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(6) > span > span > input.k-formatted-value.k-input"
+
+    if int(sys_val) < 108:
+        # enter dias randrange 65-72
+        dia_val = str(randint(65 - 72))
+        clear_and_enter_keys(dia_css, dia_val)
+        # else
+        # entre dias range range 70-78
+        dia_val = str(randint(70 - 78))
+        clear_and_enter_keys(dia_css, dia_val)
+
+    # POSITION
+    # if '8' in time:
+    # click and send keys('l')
+    # else:
+    # click and send keys('si')
+
+    # TEMP
+    # temp = str(round(uniform(97.8,98.2), 1))
+
+    # click and send keys(temp)
+
+    # taken by
+    # click and send keys('a')
+
+    # PUlSE
+    # pulse = randint(100,120)
+    # click and send keys(pulse)
+
+    # Location
+    # click and send keys('a')
+
+    # Breaths per minute
+    # breaths = str(randint(22,26))
+    # click and send keys(breaths)
+
+    # Spo2
+    # spo2 = str(randint(97,99))
+    # click and send keys(spo2)
+
+    # taken
+    # click and send keys('At')
+
+    # o2
+    # click and send keys('off')
+
+    # click update
+
+    # sleep(3)
 
 
 # DONE!!!
@@ -17,7 +86,9 @@ def allergies():
     sleep(1)
 
     try:
-        allergy_changes_radio = driver.find_element_by_id("VisitAssessment_AllergiesSection_AnyChanges_0")
+        allergy_changes_radio = driver.find_element_by_id(
+            "VisitAssessment_AllergiesSection_AnyChanges_0"
+        )
     except Exception as er:
         print(f"{er}\n could not find no changes in allergies button")
 
@@ -37,7 +108,9 @@ def med_assmnt():
 
     # no changes to medication radio button
     try:
-        med_changes_radio = driver.find_element_by_css_selector("#VisitAssessment_MedicationSection_AnyChanges_0")
+        med_changes_radio = driver.find_element_by_css_selector(
+            "#VisitAssessment_MedicationSection_AnyChanges_0"
+        )
     except Exception as er:
         print(f'Unable to locate in med "no changes" radio button: {er}')
     sleep(1.5)
@@ -45,7 +118,9 @@ def med_assmnt():
 
     # patient adhering to medication
     try:
-        adhering_to_med_radio = driver.find_element_by_css_selector("#VisitAssessment_MedicationSection_AdheringToMedication_true")
+        adhering_to_med_radio = driver.find_element_by_css_selector(
+            "#VisitAssessment_MedicationSection_AdheringToMedication_true"
+        )
     except Exception as er:
         print(f'Unable to locate in med "adhering to med" radio button: {er}')
     adhering_to_med_radio.click()
@@ -53,13 +128,36 @@ def med_assmnt():
 
     # medication reconciliation
     try:
-        med_recon_radio = driver.find_element_by_css_selector("#VisitAssessment_MedicationSection_MedicationReconciliationComplete_true")
+        med_recon_radio = driver.find_element_by_css_selector(
+            "#VisitAssessment_MedicationSection_MedicationReconciliationComplete_true"
+        )
     except Exception as er:
         print(f'Unable to locate in med "adhering to med" radio button: {er}')
     med_recon_radio.click()
     sleep(0.5)
 
     print("Medication section complete")
+
+
+# TODO
+def vital_signs():
+    # get shift time to determine number of VS to enter
+    shift_time = element_locator(
+        "#refreshArea > div > div > div > div:nth-child(2) > div.row > div:nth-child(3) > h5"
+    ).text
+
+    standard_click("#vitalSignsBar > span")
+    standard_click("#VisitAssessment_VitalSignsSection_VitalSigns_true")
+
+    time_list = ["08:00 AM", "12:00 PM", "04:00 PM", "08:00 PM"]
+
+    # if long shift, enter 4 VS
+    if "7" in shift_time:
+        for t in time_list:
+            vital(s)
+    else:
+        for t in time_list[2:]:
+            vital(t)
 
 
 # DONE!!!
@@ -72,8 +170,12 @@ def pain():
     sleep(1)
     try:
         # is client feeling pain radio button
-        current_pain_radio = driver.find_element_by_css_selector("#VisitAssessment_PainAssessmentSection_IsClientCurrentlyExperiencingPain_0")
-        cureent_pain_radio_id = driver.find_element_by_id("VisitAssessment_PainAssessmentSection_IsClientCurrentlyExperiencingPain_0")
+        current_pain_radio = driver.find_element_by_css_selector(
+            "#VisitAssessment_PainAssessmentSection_IsClientCurrentlyExperiencingPain_0"
+        )
+        cureent_pain_radio_id = driver.find_element_by_id(
+            "VisitAssessment_PainAssessmentSection_IsClientCurrentlyExperiencingPain_0"
+        )
     except Exception as e:
         print(f'Unable to click "client feeling pain" button: {e}')
     try:
@@ -118,7 +220,9 @@ def psych():
         check_and_click(driver.find_element_by_id("599"))
 
     # comment and intervention section
-    psych_comment = "client responds to pain. does not follow commands. no changes from baseline"
+    psych_comment = (
+        "client responds to pain. does not follow commands. no changes from baseline"
+    )
 
     psych_comment_el = "VisitAssessment_PsychologicalSection_CommentsInterventions"
     clear_and_enter_keys(psych_comment_el, psych_comment, "id")
@@ -144,13 +248,17 @@ def neuro():
 
     # right hand grip strength
     try:
-        r_hand_check = driver.find_element_by_css_selector("#neurologicalSection > div:nth-child(3) > div > span:nth-child(4) > span > span.k-input").text
+        r_hand_check = driver.find_element_by_css_selector(
+            "#neurologicalSection > div:nth-child(3) > div > span:nth-child(4) > span > span.k-input"
+        ).text
     except:
         print("error finding right hand grip strnegth dropdown")
 
     if r_hand_check != "Strong":
         try:
-            r_hand = driver.find_element_by_css_selector("#neurologicalSection > div:nth-child(3) > div > span:nth-child(4)")
+            r_hand = driver.find_element_by_css_selector(
+                "#neurologicalSection > div:nth-child(3) > div > span:nth-child(4)"
+            )
         except:
             print("unable to find r hand grip strenth input field")
         r_hand.click()
@@ -160,10 +268,14 @@ def neuro():
         r_hand.send_keys(Keys.ENTER)
 
     try:
-        l_hand_check = driver.find_element_by_xpath('//*[@id="neurologicalSection"]/div[3]/div/span[2]/span/span[1]').text
+        l_hand_check = driver.find_element_by_xpath(
+            '//*[@id="neurologicalSection"]/div[3]/div/span[2]/span/span[1]'
+        ).text
     except:
         try:
-            l_hand_check = driver.find_element_by_css_selector("#neurologicalSection > div:nth-child(3) > div > span:nth-child(8) > span > span.k-input").text
+            l_hand_check = driver.find_element_by_css_selector(
+                "#neurologicalSection > div:nth-child(3) > div > span:nth-child(8) > span > span.k-input"
+            ).text
         except:
             print("couldnt grab l hand drop down text using css selector")
         print("error finding left hand grip strnegth dropdown")
@@ -171,7 +283,9 @@ def neuro():
     # left hand grip strength
     if l_hand_check != "Strong":
         try:
-            l_hand = driver.find_element_by_css_selector("#neurologicalSection > div:nth-child(3) > div > span:nth-child(8)")
+            l_hand = driver.find_element_by_css_selector(
+                "#neurologicalSection > div:nth-child(3) > div > span:nth-child(8)"
+            )
         except:
             print("unable to find left hand 'strong' in drop down")
 
@@ -184,7 +298,9 @@ def neuro():
     # send keys to neuro comment
     neuro_comment = "Patient displaying no signs of tremors/seizures. No signs of neurological changes."
 
-    clear_and_enter_keys("VisitAssessment_NeurologicalSection_CommentsInterventions", neuro_comment, "id")
+    clear_and_enter_keys(
+        "VisitAssessment_NeurologicalSection_CommentsInterventions", neuro_comment, "id"
+    )
 
     print("Neuro complete")
 
@@ -214,7 +330,9 @@ def cardio():
     standard_click("VisitAssessment_CardiovascularSection_CapillaryRefill_Id_1", "id")
 
     # cap refill fingers
-    cap_fingers_locator = "VisitAssessment_CardiovascularSection_CapillaryRefillLocation"
+    cap_fingers_locator = (
+        "VisitAssessment_CardiovascularSection_CapillaryRefillLocation"
+    )
 
     clear_and_enter_keys(cap_fingers_locator, "fingers", "id")
 
@@ -230,9 +348,13 @@ def cardio():
 
     # no endurance limitations
 
-    standard_click("VisitAssessment_CardiovascularSection_EnduranceLimitations_true", "id")
+    standard_click(
+        "VisitAssessment_CardiovascularSection_EnduranceLimitations_true", "id"
+    )
 
-    endur_css = "#cardiovascularSection > div:nth-child(9) > div > div > div > div > input"
+    endur_css = (
+        "#cardiovascularSection > div:nth-child(9) > div > div > div > div > input"
+    )
 
     drop_down_handler(endur_css, "with >")
 
@@ -302,9 +424,17 @@ def gastro():
     check_and_click_id("269")
 
     # type of formula
-    clear_and_enter_keys("VisitAssessment_GastrointestinalNutritionalSection_EnteralFeeding_FormulaType", "ketocal nutrition formula", "id")
+    clear_and_enter_keys(
+        "VisitAssessment_GastrointestinalNutritionalSection_EnteralFeeding_FormulaType",
+        "ketocal nutrition formula",
+        "id",
+    )
 
-    clear_and_enter_keys("VisitAssessment_GastrointestinalNutritionalSection_EnteralFeeding_Rate", "285", "id")
+    clear_and_enter_keys(
+        "VisitAssessment_GastrointestinalNutritionalSection_EnteralFeeding_Rate",
+        "285",
+        "id",
+    )
 
     # site assessment dry & intact
     check_and_click_id("273")
@@ -317,7 +447,9 @@ def gastro():
     # entering stools per day field
     clear_and_enter_keys(stools_day_css, "1")
 
-    last_bowel_date = "VisitAssessment_GastrointestinalNutritionalSection_LastBowelMovement"
+    last_bowel_date = (
+        "VisitAssessment_GastrointestinalNutritionalSection_LastBowelMovement"
+    )
     # entering assment date to last BM
     current_assmnt_date = get_date()
 
@@ -325,7 +457,9 @@ def gastro():
 
     gastro_comment = "Patient tolerating feeds. GI tube site dry and intact, cleaned site with mild soap and water. Flushed Mickey tube with free water following med administration."
 
-    gasto_comm_id = "VisitAssessment_GastrointestinalNutritionalSection_CommentsInterventions"
+    gasto_comm_id = (
+        "VisitAssessment_GastrointestinalNutritionalSection_CommentsInterventions"
+    )
     clear_and_enter_keys(gasto_comm_id, gastro_comment, "id")
 
     print("gastro section completed")
@@ -353,11 +487,17 @@ def musculo():
 
     lim_rom_comm = "client is non ambulatory, fine motor deficit present"
 
-    clear_and_enter_keys("VisitAssessment_MusculoskeletalSection_LimitedRomMobilityText", lim_rom_comm, "id")
+    clear_and_enter_keys(
+        "VisitAssessment_MusculoskeletalSection_LimitedRomMobilityText",
+        lim_rom_comm,
+        "id",
+    )
 
     musc_comm = "Standing therapy tolerated. Passive Range of motion exercises performed. no signs of changes. passive ROM tolerated. Mild cantractures to Bilateral ankles, no changes from baseline. No signs of worsening musculoskeletal system."
 
-    clear_and_enter_keys("#VisitAssessment_MusculoskeletalSection_CommentsInterventions", musc_comm)
+    clear_and_enter_keys(
+        "#VisitAssessment_MusculoskeletalSection_CommentsInterventions", musc_comm
+    )
 
     print("musculo section complete")
 
@@ -370,7 +510,9 @@ def sensory():
 
     sensory_comm = "No sensory changes noted on shift"
 
-    clear_and_enter_keys("#VisitAssessment_SensorySection_CommentsInterventions", sensory_comm)
+    clear_and_enter_keys(
+        "#VisitAssessment_SensorySection_CommentsInterventions", sensory_comm
+    )
 
     print("Sensory section complete")
 
@@ -392,10 +534,22 @@ def ped():
     sleep(1)
     check_and_click_id("881")
 
-    drop_down_handler("#pediatricsSection > div:nth-child(3) > div:nth-child(4) > div:nth-child(1) > span", "c")
-    drop_down_handler("#pediatricsSection > div:nth-child(3) > div:nth-child(4) > div:nth-child(2) > span", "2")
-    drop_down_handler("#pediatricsSection > div:nth-child(3) > div:nth-child(5) > div:nth-child(1) > span", "2")
-    drop_down_handler("#pediatricsSection > div:nth-child(3) > div:nth-child(5) > div:nth-child(2) > span", "4")
+    drop_down_handler(
+        "#pediatricsSection > div:nth-child(3) > div:nth-child(4) > div:nth-child(1) > span",
+        "c",
+    )
+    drop_down_handler(
+        "#pediatricsSection > div:nth-child(3) > div:nth-child(4) > div:nth-child(2) > span",
+        "2",
+    )
+    drop_down_handler(
+        "#pediatricsSection > div:nth-child(3) > div:nth-child(5) > div:nth-child(1) > span",
+        "2",
+    )
+    drop_down_handler(
+        "#pediatricsSection > div:nth-child(3) > div:nth-child(5) > div:nth-child(2) > span",
+        "4",
+    )
 
     check_and_click_id("886")
     check_and_click_id("889")
@@ -421,7 +575,9 @@ def education():
     standard_click("#educationTeachingBar > span")
     sleep(1)
     education_comm = "infection control/seizure precautions"
-    clear_and_enter_keys("#VisitAssessment_EducationTeachingSection_LearningNeeds", education_comm)
+    clear_and_enter_keys(
+        "#VisitAssessment_EducationTeachingSection_LearningNeeds", education_comm
+    )
 
     print("education section done")
 
@@ -438,6 +594,8 @@ def poc():
 def state():
     standard_click("#stateRequirementsSectionBar > span")
     sleep(1)
-    standard_click("#VisitAssessment_StateRequirementsSection_StateSpecificRequirements_false")
+    standard_click(
+        "#VisitAssessment_StateRequirementsSection_StateSpecificRequirements_false"
+    )
 
     print("state reqs done")
