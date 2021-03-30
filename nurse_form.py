@@ -27,7 +27,27 @@ def covid_survey():
 
 
 def complete_assmnt_section():
-    assmnt_funcs = [allergies, med_assmnt, pain, psych, neuro, endocrine, cardio, respiratory, gastro, urinary, musculo, sensory, integ, ped, iv, education, poc, state]
+    assmnt_funcs = [
+        allergies,
+        med_assmnt,
+        vital_signs,
+        pain,
+        psych,
+        neuro,
+        endocrine,
+        cardio,
+        respiratory,
+        gastro,
+        urinary,
+        musculo,
+        sensory,
+        integ,
+        ped,
+        iv,
+        education,
+        poc,
+        state,
+    ]
 
     [f() for f in assmnt_funcs]
 

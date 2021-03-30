@@ -9,68 +9,105 @@ from random import randint, uniform
 def vital(time):
     # SETUP
     # hit add button and wait for pop up
-    standard_click("addVitalSign", mode=id)
+    sleep(1)
+    try:
+        standard_click("#addVitalSign")
+    except:
+        print("trying span instead of input..")
+        standard_click("#addVitalSign > span")
+
     sleep(2)
 
-    # TIME
     # enter time (be sure to distinguish am and pm)
     time_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(2) > span > span > input"
 
     clear_and_enter_keys(time_css, time)
+    sleep(1)
 
     # BP
-    sys_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(4) > span > span > input.k-formatted-value.k-input"
+
+    input_text = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(4) > span > span > input.k-formatted-value.k-input"
 
     sys_val = str(randint(100, 115))
-    clear_and_enter_keys(sys_css, sys)
+
+    driver.find_element_by_css_selector(input_text).send_keys(sys_val)
 
     dia_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(6) > span > span > input.k-formatted-value.k-input"
 
     if int(sys_val) < 108:
         # enter dias randrange 65-72
-        dia_val = str(randint(65 - 72))
-        clear_and_enter_keys(dia_css, dia_val)
-        # else
-        # entre dias range range 70-78
-        dia_val = str(randint(70 - 78))
-        clear_and_enter_keys(dia_css, dia_val)
+        dia_val = str(randint(65, 72))
+        driver.find_element_by_css_selector(dia_css).send_keys(dia_val)
+    else:
+        dia_val = str(randint(70, 78))
+        driver.find_element_by_css_selector(dia_css).send_keys(dia_val)
 
     # POSITION
     # if '8' in time:
-    # click and send keys('l')
-    # else:
-    # click and send keys('si')
+    pos_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(8) > span"
 
-    # TEMP
-    # temp = str(round(uniform(97.8,98.2), 1))
-
-    # click and send keys(temp)
-
-    # taken by
-    # click and send keys('a')
-
-    # PUlSE
-    # pulse = randint(100,120)
-    # click and send keys(pulse)
+    if "8" in time:
+        # click and send keys('l')
+        driver.find_element_by_css_selector(pos_css).send_keys("l")
+    else:
+        driver.find_element_by_css_selector(pos_css).send_keys("si")
 
     # Location
+    loc_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(10) > span"
+
+    driver.find_element_by_css_selector(loc_css).send_keys("Left Arm")
+
+    # TEMP
+    temp_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(12) > span > span > input.k-formatted-value.k-input"
+
+    temp = str(round(uniform(97.8, 98.2), 1))
+
+    # click and send keys(temp)
+    driver.find_element_by_css_selector(temp_css).send_keys(temp)
+
+    # taken by
+    taken_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(16) > span"
     # click and send keys('a')
+    driver.find_element_by_css_selector(taken_css).send_keys("a")
+
+    # PUlSE
+    pulse_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(18) > span > span > input.k-formatted-value.k-input"
+    pulse = str(randint(100, 120))
+    # click and send keys(pulse)
+    driver.find_element_by_css_selector(pulse_css).send_keys(pulse)
+
+    # Location
+    loca_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(20) > span"
+    # click and send keys('a')
+    driver.find_element_by_css_selector(loca_css).send_keys("a")
 
     # Breaths per minute
-    # breaths = str(randint(22,26))
+    breath_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(22) > span > span > input.k-formatted-value.k-input"
+    breaths = str(randint(22, 26))
     # click and send keys(breaths)
+    driver.find_element_by_css_selector(breath_css).send_keys(breaths)
 
     # Spo2
-    # spo2 = str(randint(97,99))
+    spo2_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(24) > span > span > input.k-formatted-value.k-input"
+    spo2 = str(randint(97, 99))
     # click and send keys(spo2)
+    driver.find_element_by_css_selector(spo2_css).send_keys(spo2)
 
     # taken
+    taken2_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(26) > span"
     # click and send keys('At')
+    driver.find_element_by_css_selector(taken2_css).send_keys("a")
 
-    # o2
-    # click and send keys('off')
+    oxygen_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(28) > span"
+
+    driver.find_element_by_css_selector(oxygen_css).send_keys("of")
 
     # click update
+    standard_click(
+        "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div.k-edit-buttons.k-state-default > a.k-button.k-button-icontext.k-primary.k-grid-update"
+    )
+
+    sleep(4)
 
     # sleep(3)
 
@@ -147,6 +184,7 @@ def vital_signs():
     ).text
 
     standard_click("#vitalSignsBar > span")
+    sleep(1)
     standard_click("#VisitAssessment_VitalSignsSection_VitalSigns_true")
 
     time_list = ["08:00 AM", "12:00 PM", "04:00 PM", "08:00 PM"]
