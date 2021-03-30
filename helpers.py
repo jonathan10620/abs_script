@@ -13,7 +13,13 @@ from nurse_form import *
 
 from time import sleep
 from sys import exit
-from nurse_form import complete_mar_section, complete_tar_section, complete_In_Out, submit_form, covid_survey
+from nurse_form import (
+    complete_mar_section,
+    complete_tar_section,
+    complete_In_Out,
+    submit_form,
+    covid_survey,
+)
 
 
 driver.implicitly_wait(15)
@@ -25,7 +31,9 @@ def log_in():
         driver.find_element_by_id("UserName").send_keys(username)
         driver.find_element_by_id("Password").send_keys(password)
     except Exception as er:
-        print(f"{er}\nIssue with log in credentials, please check username and/or password")
+        print(
+            f"{er}\nIssue with log in credentials, please check username and/or password"
+        )
     sleep(1.1)
     try:
         driver.find_element_by_xpath(
@@ -40,14 +48,19 @@ def assmnt_setup():
     driver.get("https://abscore.brightstarcare.com/General/Dashboard?dashboardId=1460")
     sleep(2)
 
-    table_body_element = driver.find_element_by_css_selector("#SkilledWorkInProcessData > div.k-grid-content.k-auto-scrollable > table > tbody")
+    table_body_element = driver.find_element_by_css_selector(
+        "#SkilledWorkInProcessData > div.k-grid-content.k-auto-scrollable > table > tbody"
+    )
 
     rows = table_body_element.find_elements_by_tag_name("tr")
     # determine number of assessments to d
     num_rows = len(rows)
     # important list containing clickable elemnts of nursing forms
 
-    assmnt_list = [f'//*[@id="SkilledWorkInProcessData"]/div[2]/table/tbody/tr[{n}]/td[4]/button' for n in range(1, num_rows + 1)]
+    assmnt_list = [
+        f'//*[@id="SkilledWorkInProcessData"]/div[2]/table/tbody/tr[{n}]/td[4]/button'
+        for n in range(1, num_rows + 1)
+    ]
 
     # Iterate through all of the nursing forms in row, calling execute_form for each
 
@@ -55,7 +68,9 @@ def assmnt_setup():
         print(i.text[:8], n, sep="-->")
 
     while True:
-        selected_row = int(input(f"detected {num_rows} row(s). Which row would you like to enter?\n"))
+        selected_row = int(
+            input(f"detected {num_rows} row(s). Which row would you like to enter?\n")
+        )
         if selected_row not in range(1, num_rows + 1):
             print("enter valid row number!")
             continue
