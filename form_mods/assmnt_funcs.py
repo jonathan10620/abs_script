@@ -176,7 +176,7 @@ def med_assmnt():
     print("Medication section complete")
 
 
-# TODO
+# DONE!!!
 def vital_signs():
     # get shift time to determine number of VS to enter
     shift_time = element_locator(
@@ -190,9 +190,12 @@ def vital_signs():
     time_list = ["08:00 AM", "12:00 PM", "04:00 PM", "08:00 PM"]
 
     # if long shift, enter 4 VS
-    if "7" in shift_time:
+    if "7" in shift_time and "3" in shift_time:
+        for t in time_list[:2]:
+            vital(t)
+    elif "7" in shift_time:
         for t in time_list:
-            vital(s)
+            vital(t)
     else:
         for t in time_list[2:]:
             vital(t)
@@ -470,7 +473,7 @@ def gastro():
 
     clear_and_enter_keys(
         "VisitAssessment_GastrointestinalNutritionalSection_EnteralFeeding_Rate",
-        "285",
+        "300",
         "id",
     )
 

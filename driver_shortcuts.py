@@ -157,7 +157,9 @@ def drop_down_handler(element, str, mode="c"):
 
 
 def get_date():
-    date_text = driver.find_element_by_css_selector("#refreshArea > div > div > div > div:nth-child(2) > div.row > div.col-md-2 > h5").text
+    date_text = driver.find_element_by_css_selector(
+        "#refreshArea > div > div > div > div:nth-child(2) > div.row > div.col-md-2 > h5"
+    ).text
 
     current_assmnt_date = "".join([c for c in date_text if c.isnumeric() or c == "/"])
     return current_assmnt_date
@@ -177,7 +179,9 @@ def time_click_admin(x_str):
     sleep(2.5)
 
     # click admin by field 'Brightstar'
-    drop_down_handler("#divRequiredComment > div.row > div > span.k-widget.k-dropdown", "b")
+    drop_down_handler(
+        "#divRequiredComment > div.row > div > span.k-widget.k-dropdown", "b"
+    )
     sleep(2)
 
     clear_and_enter_keys("#AdminDate", get_date())
@@ -219,17 +223,23 @@ def tar_click_custom(css):
 
 def go_to_second_tar_page():
     try:
-        driver.find_element_by_css_selector("#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a.k-link.k-pager-nav.k-pager-last > span").click()
+        driver.find_element_by_css_selector(
+            "#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a.k-link.k-pager-nav.k-pager-last > span"
+        ).click()
         print("clicking two worked")
     except Exception:
         pass
     try:
-        driver.find_element_by_css_selector("#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a:nth-child(4)").click()
+        driver.find_element_by_css_selector(
+            "#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a:nth-child(4)"
+        ).click()
         print("clicking right button worked")
     except Exception:
         pass
     try:
-        driver.find_element_by_css_selector("#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a.k-link.k-pager-nav.k-pager-last > span").click()
+        driver.find_element_by_css_selector(
+            "#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a.k-link.k-pager-nav.k-pager-last > span"
+        ).click()
         print("clicking far right button worked")
     except Exception:
         pass

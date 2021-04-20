@@ -31,12 +31,27 @@ def tar_first_page():
         for css in mon_list_1:
             tar_click(css)
             sleep(2.5)
+    elif day == "Tuesday":
+        for css in tues_list_1:
+            tar_click(css)
+            sleep(2.5)
+    elif day == "Wednesday":
+        for css in wens_list_1:
+            tar_click(css)
+            sleep(2.5)
+    elif day == "Thursday":
+        for css in thurs_list_1:
+            tar_click(css)
+            sleep(2.5)
+    elif day == "Friday":
+        for css in fri_list_1:
+            tar_click(css)
+            sleep(2.5)
 
     print("first tar page complete")
 
 
 def tar_second_page():
-    # TODO click second tar page
     go_to_second_tar_page()
     sleep(5)
     if day == "Saturday":
