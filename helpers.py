@@ -6,8 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
 
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install())
 
 from nurse_form import *
 
@@ -87,6 +88,6 @@ def assmnt_setup():
 
 def execute_nursing_form():
     covid_survey()
-    complete_assmnt_section()
+    # complete_assmnt_section()
     complete_mar_section()
-    complete_tar_section()
+    # complete_tar_section()
