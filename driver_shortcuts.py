@@ -8,6 +8,7 @@ from datetime import datetime
 helper functions that define common driver patterns used in browse
 """
 
+
 def click_clear_keys_to_element(element, keys):
 
     """
@@ -102,7 +103,6 @@ def standard_click(element, mode="c"):
     temp = element_locator(element, mode)
     sleep(1)
     temp.click()
-
 
 
 def element_locator(element, mode="c"):
@@ -204,7 +204,7 @@ def time_click_admin(x_str):
 
 
 def tar_click(css):
-    standard_click(css, 'x')
+    standard_click(css, "x")
     sleep(2)
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
@@ -215,7 +215,7 @@ def tar_click(css):
 
 
 def tar_click_custom(css):
-    standard_click(css, 'x')
+    standard_click(css, "x")
     sleep(1)
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
@@ -252,8 +252,10 @@ def go_to_second_tar_page():
 
 def get_assmnt_date():
     # function return day of the week in str format of assmnt date
-    date_text = driver.find_element_by_xpath('//*[@id="refreshArea"]/div/div/div/div[2]/div[1]/div[2]/h5').text
+    date_text = driver.find_element_by_xpath(
+        '//*[@id="refreshArea"]/div/div/div/div[2]/div[1]/div[2]/h5'
+    ).text
 
-    day_of_week = datetime.strptime(date_text, "Visit Date: %m/%d/%Y").strftime('%A')
+    day_of_week = datetime.strptime(date_text, "Visit Date: %m/%d/%Y").strftime("%A")
 
     return day_of_week

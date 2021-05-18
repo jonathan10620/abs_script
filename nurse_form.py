@@ -3,7 +3,6 @@ from form_mods.mar_funcs import *
 from form_mods.tar_funcs import *
 from helpers import driver
 
-
 """
 nurse form handles highlevel completion of nursing form in whole
 calls upon functions from assmnt_funcs and others to modularize functionality
@@ -54,12 +53,14 @@ def complete_assmnt_section():
 
 def complete_mar_section():
     enter_mar_section()
-    # mar_first_page()
-    # TODO change to all if needed
-    sleep(2.5)
-    mar_second_page()
-    sleep(2.5)
-    mar_third_page()
+    mar_first_page()
+    from helpers import at_dads
+
+    if at_dads == "y":
+        sleep(2.5)
+        mar_second_page()
+        sleep(2.5)
+        mar_third_page()
 
 
 def complete_tar_section():
