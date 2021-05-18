@@ -1,80 +1,119 @@
-med_list_1_PM = [
-    # carnitor PM
+dad_1_all = [
+    # carnitor 7AM & 7PM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a',
-    # felbamate PM
+
+    # vit. D 7AM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
+
+    # Felbamate 7am 1pm 7pm
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[1]/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[2]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[3]/a',
-    # hypersal PM
+
+    # Hyper sal 7am 7pm
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li[2]/a',
-    # albuterol
+
+    # Calcium powder 7AM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[7]/td[4]/ul/li/a',
+
+    # albuterol 7AM 7PM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li[2]/a',
 ]
 
-med_list_1_AM = [
-    # carnitor
+dad_2_all = [
+    # calcium carb 7am
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li/a',
+
+    # CBD AM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[7]/td[4]/ul/li/a',
+    # CBD PM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li/a',
+
+    # sodium
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[8]/td[4]/ul/li/a',
+
+    # centrum
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li/a',
+    ]
+
+
+dad_3_all = [
+    # clobazam 7AM & 7PM
+
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
-    # cholecalciferol
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a',
+
+    # clobazam 2PM
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
-    # felbamate
+
+    # milk of magnesia
+
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li/a'
+]
+
+
+
+dad_1_morn = [
+    # carnitor 7AM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
+    # vit. D 7AM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
+
+    # Felbamate 7am 1pm 
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[2]/a',
-    # hypersal
+
+    # Hyper sal 7am 
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li[1]/a',
-    # calcium powder
+
+    # Calcium powder 7AM
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[7]/td[4]/ul/li/a',
-    # albuterol
+
+    # albuterol 7AM 
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li[1]/a',
 ]
 
-
-# CBD PM
-med_list_2_PM = ['//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li/a']
-
-
-med_list_2_AM = [
-    # Calcium Carbonate
+dad_2_morn = [
+    # calcium carb 7am
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li/a',
+
     # CBD AM
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[7]/td[4]/ul/li/a',
-    # Sodium
+
+    # sodium
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[8]/td[4]/ul/li/a',
-    # Centrum multi-vitamin
+
+    # centrum
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li/a',
 ]
 
+dad_3_morn = [
+    # clobazam 7AM
 
-med_list_3_PM = [  # clobazam 7PM
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a'
-]
-
-med_list_3_AM = [
-    # clobazam 7 Am
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
-    # clobazam 2 PM
+
+    # clobazam 2PM
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
 ]
 
 
-page_1_meds = [
-    # 1
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a',
-    # 2
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
-    # 3
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[1]/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[2]/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[3]/a',
-    # 4
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[4]/td[4]/ul/li[1]/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[4]/td[4]/ul/li[2]/a'
-    # 5
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[1]/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[2]/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[3]/a'
-    # 6
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[7]/td[4]/ul/li/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[8]/td[4]/ul/li/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li/a',
-    '//*[@id="gridCustomerMedication"]/table/tbody/tr[10]/td[4]/ul/li/a',
-]
+
+
+
+
+
+
+
+
+mom_1_all = []
+
+mom_2_all = []
+
+
+mom_1_evening = []
+
+mom_2_evening = []
+

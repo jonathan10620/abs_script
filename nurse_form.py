@@ -54,12 +54,12 @@ def complete_assmnt_section():
 
 def complete_mar_section():
     enter_mar_section()
-    mar_first_page()
+    # mar_first_page()
     # TODO change to all if needed
-    # sleep(2.5)
-    # mar_second_page()
-    # sleep(2.5)
-    # mar_third_page()
+    sleep(2.5)
+    mar_second_page()
+    sleep(2.5)
+    mar_third_page()
 
 
 def complete_tar_section():

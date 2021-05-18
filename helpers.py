@@ -22,6 +22,7 @@ from nurse_form import (
     covid_survey,
 )
 
+at_dads = True
 
 driver.implicitly_wait(15)
 
@@ -80,6 +81,12 @@ def assmnt_setup():
 
     for num, elem in enumerate(assmnt_list, start=1):
         if selected_row == num:
+            global at_dads
+            parent_status = driver.find_element_by_xpath(f'//*[@id="SkilledWorkInProcessData"]/div[2]/table/tbody/tr[{selected_row}]/td[2]').text
+
+            at_dads = 'DAD' in parent_status
+            
+
             print(f"entering assessment {num}...")
             driver.find_element_by_xpath(elem).click()
             sleep(1)
@@ -88,6 +95,6 @@ def assmnt_setup():
 
 def execute_nursing_form():
     covid_survey()
-    # complete_assmnt_section()
-    complete_mar_section()
+    complete_assmnt_section()
+    # complete_mar_section()
     # complete_tar_section()

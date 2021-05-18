@@ -2,13 +2,14 @@ from time import sleep
 from helpers import driver
 import random
 from selenium.webdriver.common.keys import Keys
+from datetime import datetime
 
 """
 helper functions that define common driver patterns used in browse
 """
 
-
 def click_clear_keys_to_element(element, keys):
+
     """
     This is an all around trouble shooting function that attempts to click, clear and send_keys to an element. Used as a fail safe for uncoperative elements.
     """
@@ -40,7 +41,7 @@ def check_and_click_id(id):
 
     This funcion ensures that radio buttons are not 'unselected'
     """
-    sleep(2)
+    sleep(1)
     try:
         element = driver.find_element_by_id(id)
     except:
@@ -65,7 +66,7 @@ def clear_and_enter_keys(element, str, mode="c"):
     except:
         print("Element field cannot be cleared")
         input("acknowledge error by pressing anything..")
-    sleep(1.5)
+    sleep(1)
     try:
         temp.send_keys(str)
     except:
@@ -90,6 +91,7 @@ def check_and_click(element, mode="c"):
 
 
 def standard_click(element, mode="c"):
+    driver.implicitly_wait(10)
     """
     function that handles errors for varying specied modes of elements
     default is css selector, howvwer can use:
@@ -102,7 +104,9 @@ def standard_click(element, mode="c"):
     temp.click()
 
 
+
 def element_locator(element, mode="c"):
+    driver.implicitly_wait(10)
     if mode == "c":
         try:
             temp = driver.find_element_by_css_selector(element)
@@ -138,14 +142,14 @@ def drop_down_handler(element, str, mode="c"):
         temp.clear()
     except:
         print("element not clearable")
-    sleep(2)
+    sleep(1)
 
     try:
         temp.click()
     except:
         print("element not clikcable")
         input("acknowledge error by pressing anything..")
-    sleep(2)
+    sleep(1)
 
     try:
         temp.send_keys(str)
@@ -172,24 +176,25 @@ random_str_time_tail = str(random.randint(1, 9)).zfill(2)
 def time_click_admin(x_str):
     time_click = element_locator(x_str, mode="x")
     try:
+        sleep(1)
         time_click.click()
     except:
         print("unable to find/click elemnt")
         return
-    sleep(2.5)
+    sleep(2)
 
     # click admin by field 'Brightstar'
     drop_down_handler(
         "#divRequiredComment > div.row > div > span.k-widget.k-dropdown", "b"
     )
-    sleep(2)
+    sleep(1)
 
     clear_and_enter_keys("#AdminDate", get_date())
-    sleep(2)
+    sleep(1)
 
     time_to_enter = time_click.text.replace("00", random_str_time_tail)
     clear_and_enter_keys("#AdminDateTime", time_to_enter)
-    sleep(3)
+    sleep(1.5)
 
     # TODO
     standard_click("btnSubmit", "id")
@@ -199,26 +204,26 @@ def time_click_admin(x_str):
 
 
 def tar_click(css):
-    standard_click(css)
-    sleep(3)
+    standard_click(css, 'x')
+    sleep(2)
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
-    clear_and_enter_keys("#TreatmentDateTime", "8:15 PM")
+    clear_and_enter_keys("#TreatmentDateTime", "2:15 PM")
 
     standard_click("#btnSubmit")
-    sleep(3)
+    sleep(1)
 
 
 def tar_click_custom(css):
-    standard_click(css)
-    sleep(3)
+    standard_click(css, 'x')
+    sleep(1)
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
-    clear_and_enter_keys("#TreatmentDateTime", "8:15 PM")
+    clear_and_enter_keys("#TreatmentDateTime", "2:15 PM")
     clear_and_enter_keys("#Comment", "No evidence of pain/fever")
 
     standard_click("#btnSubmit")
-    sleep(3)
+    sleep(2)
 
 
 def go_to_second_tar_page():
@@ -243,3 +248,12 @@ def go_to_second_tar_page():
         print("clicking far right button worked")
     except Exception:
         pass
+
+
+def get_assmnt_date():
+    # function return day of the week in str format of assmnt date
+    date_text = driver.find_element_by_xpath('//*[@id="refreshArea"]/div/div/div/div[2]/div[1]/div[2]/h5').text
+
+    day_of_week = datetime.strptime(date_text, "Visit Date: %m/%d/%Y").strftime('%A')
+
+    return day_of_week

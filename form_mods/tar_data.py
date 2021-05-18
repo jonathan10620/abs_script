@@ -1,75 +1,44 @@
-sat_list_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(7) > a"
-    for n in range(2, 11)
+fri_1_am = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[6]/a' for n in range(2,11)]
+fri_2_am = [
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[1]/td[4]/ul/li[7]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[2]/td[4]/ul/li[6]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[4]/td[4]/ul/li[6]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[5]/td[4]/ul/li[6]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[6]/td[4]/ul/li[6]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[7]/td[4]/ul/li[11]/a'
 ]
 
-temp = [
-    "#gridCustomerTreatment > table > tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(8) > a"
+fri_extra_am = [
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[6]/a',
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[6]/a']
+
+
+sat_1_all = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[7]/a' for n in range(2,11)]
+
+
+sat_2_all = [
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[1]/td[4]/ul/li[8]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[2]/td[4]/ul/li[7]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[4]/td[4]/ul/li[7]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[5]/td[4]/ul/li[7]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[6]/td[4]/ul/li[7]/a',
+    '//*[@id="gridCustomerTreatment"]/table/tbody/tr[7]/td[4]/ul/li[13]/a'
 ]
-temp_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(7) > a"
-    for n in range(2, 7)
-    if n != 3
-]
+sat_extra_all = [
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[7]/a',
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[7]/a'
+    ]
 
-sat_list_2 = temp + temp_1
+sun_1_all = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[1]/a' for n in range(1,11)]
 
-sat_list_extra = [
-    "#gridOtherTreatment > table > tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(7) > a",
-    "#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(7) > a",
-]
+sun_2_all = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[1]/a' for n in range(1,7) if n != 3]
 
 
-sun_list_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(1) > a"
-    for n in range(1, 11)
-]
+sun_extra_all = [
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[1]/a',
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[1]/a'
+    ]
 
-sun_list_2 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(1) > a"
-    for n in range(1, 7)
-    if n != 3
-]
-
-sun_list_extra = [
-    "#gridOtherTreatment > table > tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(1) > a",
-    "#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(1) > a",
-]
-
-
-# monday tars functioning
-mon_list_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(2) > a"
-    for n in range(2, 11)
-]
-
-mon_list_2 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(2) > a"
-    for n in range(1, 7)
-    if n != 3
-]
-
-mon_list_extra = [
-    "#gridOtherTreatment > table > tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(2) > a",
-    "#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(2) > a",
-]
-
-tues_list_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(3) > a"
-    for n in range(2, 11)
-]
-
-wens_list_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(4) > a"
-    for n in range(2, 11)
-]
-
-thurs_list_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(5) > a"
-    for n in range(2, 11)
-]
-
-fri_list_1 = [
-    f"#gridCustomerTreatment > table > tbody > tr:nth-child({n}) > td:nth-child(4) > ul > li:nth-child(6) > a"
-    for n in range(2, 11)
-]
+mon_1_eve = []
+mon_2_eve = []
+mon_extra_eve = []
