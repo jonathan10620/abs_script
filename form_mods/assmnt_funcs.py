@@ -2,30 +2,20 @@ from helpers import driver
 from time import sleep
 from driver_shortcuts import *
 from selenium.webdriver.common.keys import Keys
-
 from random import randint, uniform
 
-# store date globally
 def vital(time):
     # SETUP
-    # hit add button and wait for pop up
-    sleep(1)
-    try:
-        standard_click("#addVitalSign")
-    except:
-        print("trying span instead of input..")
-        standard_click("#addVitalSign > span")
-
     sleep(2)
+    standard_click("#addVitalSign")
+    sleep(3)
 
     # enter time (be sure to distinguish am and pm)
     time_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(2) > span > span > input"
 
     clear_and_enter_keys(time_css, time)
-    sleep(1)
-
+    sleep(2)
     # BP
-
     input_text = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(4) > span > span > input.k-formatted-value.k-input"
 
     sys_val = str(randint(100, 115))
@@ -83,7 +73,13 @@ def vital(time):
 
     # Breaths per minute
     breath_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(22) > span > span > input.k-formatted-value.k-input"
-    breaths = str(randint(22, 26))
+    breath_int = randint(22, 26)
+
+    if breath_int % 2 != 0:
+        breath_int += 1
+
+    breaths = str(breath_int)
+
     # click and send keys(breaths)
     driver.find_element_by_css_selector(breath_css).send_keys(breaths)
 
@@ -109,10 +105,7 @@ def vital(time):
 
     sleep(4)
 
-    # sleep(3)
 
-
-# DONE!!!
 def allergies():
     try:
         driver.find_element_by_xpath('//*[@id="allergiesBar"]/span').click()
@@ -134,7 +127,6 @@ def allergies():
     sleep(1)
 
 
-# DONE!!!
 def med_assmnt():
     # click span bar to open up the med section of assmnt
     try:
@@ -171,12 +163,11 @@ def med_assmnt():
     except Exception as er:
         print(f'Unable to locate in med "adhering to med" radio button: {er}')
     med_recon_radio.click()
-    sleep(0.5)
+    sleep(4)
 
     print("Medication section complete")
 
 
-# DONE!!!
 def vital_signs():
     # get shift time to determine number of VS to enter
     shift_time = element_locator(
@@ -184,8 +175,8 @@ def vital_signs():
     ).text
 
     standard_click("#vitalSignsBar > span")
-    sleep(1)
-    standard_click("#VisitAssessment_VitalSignsSection_VitalSigns_true")
+    sleep(5)
+    standard_click('//*[@id="VisitAssessment_VitalSignsSection_VitalSigns_true"]','x')
 
     time_list = ["08:00 AM", "12:00 PM", "04:00 PM", "08:00 PM"]
 
@@ -201,7 +192,6 @@ def vital_signs():
             vital(t)
 
 
-# DONE!!!
 def pain():
     # click Pain bar
     try:
@@ -232,7 +222,6 @@ def pain():
     print("Pain section complete")
 
 
-# DONE!!!
 def psych():
     # clicking psych bar
     sleep(1)
@@ -240,26 +229,14 @@ def psych():
     sleep(2.5)
 
     # sleep apnea
-    try:
-        check_and_click_id("700")
-    except:
-        print("what the f?")
-        check_and_click(driver.find_element_by_id("700"))
+    check_and_click_id("700")
 
     # Other psych problem
-    try:
-        check_and_click_id("701")
-    except:
-        print("something fishy going on")
-        check_and_click(driver.find_element_by_id("701"))
+    check_and_click_id("701")
 
     # A&O other
-    try:
-        check_and_click_id("599")
-    except:
-        print("something fishy going on")
-        check_and_click(driver.find_element_by_id("599"))
-
+    check_and_click_id("599")
+    
     # comment and intervention section
     psych_comment = (
         "client responds to pain. does not follow commands. no changes from baseline"
@@ -271,7 +248,6 @@ def psych():
     print("psych complete")
 
 
-# DONE!!!
 def neuro():
     # click neuro bar
     standard_click("#neurologicalBar > span")
@@ -345,8 +321,6 @@ def neuro():
 
     print("Neuro complete")
 
-
-# DONE!!!
 def endocrine():
     standard_click("#endocrineBar > span")
     sleep(1)
@@ -354,7 +328,6 @@ def endocrine():
     print("endocrine section complete")
 
 
-# DONE!!!
 def cardio():
     standard_click('//*[@id="cardiovascularBar"]/span', "x")
     sleep(1)
@@ -406,7 +379,6 @@ def cardio():
     print("cardio section complete")
 
 
-# DONE!!!
 def respiratory():
     sleep(1)
     standard_click("#respiratoryBar > span")
@@ -440,7 +412,6 @@ def respiratory():
     print("Respiratory system complete")
 
 
-# DONE!!!
 def gastro():
 
     sleep(1)
@@ -506,7 +477,6 @@ def gastro():
     print("gastro section completed")
 
 
-# DONE!!!
 def urinary():
     sleep(1)
     standard_click("#genitourinaryBar > span")
@@ -519,7 +489,6 @@ def urinary():
     print("Urinary section complete")
 
 
-# DONE!!!
 def musculo():
     standard_click("#musculoskeletalBar > span")
     sleep(1)
@@ -543,7 +512,6 @@ def musculo():
     print("musculo section complete")
 
 
-# DONE!!!
 def sensory():
     standard_click("#sensoryBar > span")
     sleep(1)
@@ -558,7 +526,6 @@ def sensory():
     print("Sensory section complete")
 
 
-# DONE!!!
 def integ():
     standard_click("#integumentaryBar > span")
     sleep(1)
@@ -566,10 +533,9 @@ def integ():
     check_and_click_id("772")
     standard_click("#VisitAssessment_IntegumentarySection_Wound_false")
 
-    print("Integumentaary Done")
+    print("Integumentary Done")
 
 
-# DONE!!!
 def ped():
     standard_click("#pediatricsBar > span")
     sleep(1)
@@ -603,7 +569,6 @@ def ped():
     print("pediatric section complete")
 
 
-# DONE!!!
 def iv():
     standard_click("#intravenousBar > span")
     sleep(1)
@@ -611,7 +576,6 @@ def iv():
     print("IV status done")
 
 
-# DONE!!!
 def education():
     standard_click("#educationTeachingBar > span")
     sleep(1)
@@ -623,7 +587,6 @@ def education():
     print("education section done")
 
 
-# DONE!!!
 def poc():
     standard_click("#planOfCareReviewCareCoordinationBar > span")
     sleep(1)
@@ -631,7 +594,6 @@ def poc():
     print("poc done")
 
 
-# DONE!!!
 def state():
     standard_click("#stateRequirementsSectionBar > span")
     sleep(1)

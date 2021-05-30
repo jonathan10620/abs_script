@@ -17,16 +17,20 @@ from sys import exit
 from nurse_form import (
     complete_mar_section,
     complete_tar_section,
-    complete_In_Out,
-    submit_form,
     covid_survey,
 )
 
 
-at_dads = ""
+
 
 
 driver.implicitly_wait(15)
+
+def execute_nursing_form():
+    covid_survey()
+    complete_assmnt_section()
+    complete_mar_section()
+    complete_tar_section()
 
 
 def log_in():
@@ -84,20 +88,10 @@ def assmnt_setup():
     for num, elem in enumerate(assmnt_list, start=1):
         if selected_row == num:
 
-            parent_status = driver.find_element_by_xpath(
-                f'//*[@id="SkilledWorkInProcessData"]/div[2]/table/tbody/tr[{selected_row}]/td[2]'
-            ).text
-
-            at_dads = "y" if "DAD" in parent_status else "n"
-
             print(f"entering assessment {num}...")
             driver.find_element_by_xpath(elem).click()
             sleep(1)
             driver.switch_to_window(driver.window_handles[1])
 
 
-def execute_nursing_form():
-    covid_survey()
-    # complete_assmnt_section()
-    complete_mar_section()
-    complete_tar_section()
+

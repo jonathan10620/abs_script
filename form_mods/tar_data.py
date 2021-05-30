@@ -36,6 +36,9 @@ sat_extra_all = [
     '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[7]/a',
 ]
 
+
+
+###SUNDAY####
 sun_1_all = [
     f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[1]/a'
     for n in range(1, 11)

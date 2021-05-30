@@ -54,9 +54,8 @@ def complete_assmnt_section():
 def complete_mar_section():
     enter_mar_section()
     mar_first_page()
-    from helpers import at_dads
-
-    if at_dads == "y":
+    
+    if at_dads():
         sleep(2.5)
         mar_second_page()
         sleep(2.5)
@@ -69,11 +68,3 @@ def complete_tar_section():
     tar_first_page()
     sleep(2.5)
     tar_second_page()
-
-
-def complete_In_Out():
-    pass
-
-
-def submit_form():
-    pass

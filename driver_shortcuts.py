@@ -141,7 +141,7 @@ def drop_down_handler(element, str, mode="c"):
     try:
         temp.clear()
     except:
-        print("element not clearable")
+        pass
     sleep(1)
 
     try:
@@ -168,10 +168,8 @@ def get_date():
     current_assmnt_date = "".join([c for c in date_text if c.isnumeric() or c == "/"])
     return current_assmnt_date
 
-
 # MAR helpers
 random_str_time_tail = str(random.randint(1, 9)).zfill(2)
-
 
 def time_click_admin(x_str):
     time_click = element_locator(x_str, mode="x")
@@ -199,10 +197,7 @@ def time_click_admin(x_str):
     # TODO
     standard_click("btnSubmit", "id")
 
-
-# TAR functions
-
-
+# TAR helpers
 def tar_click(css):
     standard_click(css, "x")
     sleep(2)
@@ -212,7 +207,6 @@ def tar_click(css):
 
     standard_click("#btnSubmit")
     sleep(1)
-
 
 def tar_click_custom(css):
     standard_click(css, "x")
@@ -224,7 +218,6 @@ def tar_click_custom(css):
 
     standard_click("#btnSubmit")
     sleep(2)
-
 
 def go_to_second_tar_page():
     try:
@@ -249,7 +242,6 @@ def go_to_second_tar_page():
     except Exception:
         pass
 
-
 def get_assmnt_date():
     # function return day of the week in str format of assmnt date
     date_text = driver.find_element_by_xpath(
@@ -259,3 +251,6 @@ def get_assmnt_date():
     day_of_week = datetime.strptime(date_text, "Visit Date: %m/%d/%Y").strftime("%A")
 
     return day_of_week
+
+def at_dads():
+    return 'DAD' in element_locator('//*[@id="CustomerName"]', 'x').text
