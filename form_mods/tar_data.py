@@ -46,7 +46,7 @@ sun_1_all = [
 
 sun_2_all = [
     f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[1]/a'
-    for n in range(1, 7)
+    for n in range(1, 8)
     if n != 3
 ]
 

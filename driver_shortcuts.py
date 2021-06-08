@@ -8,7 +8,6 @@ from datetime import datetime
 helper functions that define common driver patterns used in browse
 """
 
-
 def click_clear_keys_to_element(element, keys):
 
     """
@@ -36,7 +35,6 @@ def click_clear_keys_to_element(element, keys):
     sleep(1)
     element.send_keys(Keys.ENTER)
 
-
 def check_and_click_id(id):
     """this function recieves a web elements id, and performs a check to see if that element is selected, and clicks it if not.
 
@@ -56,7 +54,6 @@ def check_and_click_id(id):
             print(f"element {element} cannot be clicked!")
             input("acknowledge error by pressing anything..")
 
-
 def clear_and_enter_keys(element, str, mode="c"):
     """This function recieves an element and the keys to be entered. it clears the selecteed textfield (if found), and then reenters the text to ensure double entry does not happen"""
     sleep(1)
@@ -74,7 +71,6 @@ def clear_and_enter_keys(element, str, mode="c"):
         print("Element cannot be sent keys!")
         input("acknowledge error by pressing anything..")
 
-
 def check_and_click(element, mode="c"):
     """This function recieves an element and checks to see if element is unselected before clicking it, if it is selected, nothing is done"""
     temp = element_locator(element, mode)
@@ -90,7 +86,6 @@ def check_and_click(element, mode="c"):
         print("issue checking to see if element is selected found!")
         input("acknowledge error by pressing anything..")
 
-
 def standard_click(element, mode="c"):
     driver.implicitly_wait(10)
     """
@@ -103,7 +98,6 @@ def standard_click(element, mode="c"):
     temp = element_locator(element, mode)
     sleep(1)
     temp.click()
-
 
 def element_locator(element, mode="c"):
     driver.implicitly_wait(10)
@@ -134,7 +128,6 @@ def element_locator(element, mode="c"):
             return
         return temp
 
-
 def drop_down_handler(element, str, mode="c"):
     temp = element_locator(element, mode)
     sleep(1)
@@ -158,7 +151,6 @@ def drop_down_handler(element, str, mode="c"):
     except:
         print("element not recieving keys")
         input("acknowledge error by pressing anything..")
-
 
 def get_date():
     date_text = driver.find_element_by_css_selector(

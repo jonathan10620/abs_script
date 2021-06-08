@@ -24,7 +24,6 @@ def covid_survey():
     except Exception as er:
         print(f"{er} covid screening failed..")
 
-
 def complete_assmnt_section():
     assmnt_funcs = [
         allergies,
@@ -50,7 +49,6 @@ def complete_assmnt_section():
 
     [f() for f in assmnt_funcs]
 
-
 def complete_mar_section():
     enter_mar_section()
     mar_first_page()
@@ -60,7 +58,6 @@ def complete_mar_section():
         mar_second_page()
         sleep(2.5)
         mar_third_page()
-
 
 def complete_tar_section():
     enter_tar_section()

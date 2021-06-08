@@ -19,11 +19,6 @@ from nurse_form import (
     complete_tar_section,
     covid_survey,
 )
-
-
-
-
-
 driver.implicitly_wait(15)
 
 def execute_nursing_form():
@@ -92,6 +87,3 @@ def assmnt_setup():
             driver.find_element_by_xpath(elem).click()
             sleep(1)
             driver.switch_to_window(driver.window_handles[1])
-
-
-
