@@ -64,10 +64,13 @@ dad_2_morn = [
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li/a',
 ]
 dad_3_morn = [
-    # clobazam 7AM
+    # clobazam 7AM & 7PM
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
+
     # clobazam 2PM
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
+    # milk of magnesia
+    # '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li/a',
 ]
 
 # mon evening at dads
