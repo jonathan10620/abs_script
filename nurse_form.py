@@ -1,7 +1,8 @@
 from form_mods.assmnt_funcs import *
 from form_mods.mar_funcs import *
 from form_mods.tar_funcs import *
-from helpers import driver
+from helpers import *
+
 
 """
 nurse form handles highlevel completion of nursing form in whole
@@ -10,7 +11,7 @@ calls upon functions from assmnt_funcs and others to modularize functionality
 
 
 def covid_survey():
-    # bypasses section if no covid survey prompt, saves time
+    # bypasses section if no covid survey prompt, saves time1
 
     check = driver.find_element_by_id("hasCovidNo")
 

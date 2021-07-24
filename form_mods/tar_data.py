@@ -56,6 +56,12 @@ sun_extra_all = [
     '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[1]/a',
 ]
 
-mon_1_eve = []
-mon_2_eve = []
-mon_extra_eve = []
+mon_1_eve = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[2]/a'
+    for n in range(1, 11)]
+mon_2_eve = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[1]/a'
+    for n in range(1, 8)
+    if n != 3]
+
+
+
+mon_extra_eve = ['//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[2]/a','//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[2]/a']

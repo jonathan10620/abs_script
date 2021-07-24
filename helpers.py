@@ -21,6 +21,8 @@ from nurse_form import (
 )
 driver.implicitly_wait(15)
 
+
+
 def execute_nursing_form():
     covid_survey()
     complete_assmnt_section()

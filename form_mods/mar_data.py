@@ -74,11 +74,27 @@ dad_3_morn = [
 ]
 
 # mon evening at dads
-dad_1_pm = []
+dad_1_pm = [# carnitor 7PM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a',
 
-dad_2_pm = []
+    # Felbamate 7pm
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[3]/a',
+    # Hyper sal 7pm
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li[2]/a',
+    # albuterol 7PM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li[2]/a',]
 
-dad_3_pm = []
+dad_2_pm = [# CBD PM
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li/a',
+    ]
+
+dad_3_pm = [
+    # clobazam 7PM
+
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a',
+    # milk of magnesia
+    # '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li/a',
+]
 
 
 mom_1_all = [

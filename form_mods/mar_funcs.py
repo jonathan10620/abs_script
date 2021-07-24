@@ -69,5 +69,5 @@ def mar_third_page():
             for x in dad_3_all:
                 time_click_admin(x)
         elif day_of_week == "Monday":
-            for x in dad_1_pm:
+            for x in dad_3_pm:
                 time_click_admin(x)
