@@ -44,7 +44,7 @@ def check_and_click_id(id):
     try:
         element = driver.find_element_by_id(id)
     except:
-        print(f"element: {element} cannot be found")
+        print(f"element: cannot be found")
         input("acknowledge error by pressing anything..")
 
     if not (element.is_selected()):
