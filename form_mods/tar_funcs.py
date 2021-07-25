@@ -32,18 +32,6 @@ def tar_first_page():
         for css in mon_1_eve:
             tar_click(css)
             sleep(2.5)
-    # elif day == "Tuesday":
-    #     for css in tues_list_1:
-    #         tar_click(css)
-    #         sleep(2.5)
-    # elif day == "Wednesday":
-    #     for css in wens_list_1:
-    #         tar_click(css)
-    #         sleep(2.5)
-    # elif day == "Thursday":
-    #     for css in thurs_list_1:
-    #         tar_click(css)
-    #         sleep(2.5)
     elif day == "Friday":
         for css in fri_1_am:
             tar_click(css)
@@ -59,6 +47,7 @@ def tar_second_page():
         for css in sat_2_all:
             tar_click(css)
             sleep(2.5)
+        sleep(3)
         tar_click_custom(sat_extra_all[0])
         sleep(3)
         tar_click(sat_extra_all[1])
@@ -66,6 +55,7 @@ def tar_second_page():
         for css in sun_2_all:
             tar_click(css)
             sleep(2.5)
+        sleep(3)
         tar_click_custom(sun_extra_all[0])
         sleep(3)
         tar_click(sun_extra_all[1])

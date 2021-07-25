@@ -33,6 +33,7 @@ sat_2_all = [
 ]
 sat_extra_all = [
     '//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[7]/a',
+
     '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[7]/a',
 ]
 
