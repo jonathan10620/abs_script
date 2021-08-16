@@ -11,22 +11,22 @@ def vital(time):
     sleep(3)
 
     # enter time (be sure to distinguish am and pm)
-    time_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(2) > span > span > input"
+    time_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(2) > span > span > input"
 
     clear_and_enter_keys(time_css, time)
     sleep(2)
     # BP
-    input_text = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(4) > span > span > input.k-formatted-value.k-input"
+    input_text = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(4) > span > span > input.k-formatted-value.k-input"
 
     sys_val = str(randint(100, 115))
 
     driver.find_element_by_css_selector(input_text).send_keys(sys_val)
 
-    dia_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(6) > span > span > input.k-formatted-value.k-input"
+    dia_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(6) > span > span > input.k-formatted-value.k-input"
 
     if int(sys_val) < 108:
-        # enter dias randrange 65-72
-        dia_val = str(randint(65, 72))
+        # enter dias randrange 66-72
+        dia_val = str(randint(66, 72))
         driver.find_element_by_css_selector(dia_css).send_keys(dia_val)
     else:
         dia_val = str(randint(70, 78))
@@ -34,7 +34,7 @@ def vital(time):
 
     # POSITION
     # if '8' in time:
-    pos_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(8) > span"
+    pos_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(8) > span"
 
     if "8" in time:
         # click and send keys('l')
@@ -43,12 +43,12 @@ def vital(time):
         driver.find_element_by_css_selector(pos_css).send_keys("si")
 
     # Location
-    loc_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(10) > span"
+    loc_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(10) > span"
 
     driver.find_element_by_css_selector(loc_css).send_keys("Left Arm")
 
     # TEMP
-    temp_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(12) > span > span > input.k-formatted-value.k-input"
+    temp_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(12) > span > span > input.k-formatted-value.k-input"
 
     temp = str(round(uniform(97.8, 98.2), 1))
 
@@ -56,23 +56,23 @@ def vital(time):
     driver.find_element_by_css_selector(temp_css).send_keys(temp)
 
     # taken by
-    taken_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(16) > span"
+    taken_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(16) > span"
     # click and send keys('a')
     driver.find_element_by_css_selector(taken_css).send_keys("a")
 
     # PUlSE
-    pulse_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(18) > span > span > input.k-formatted-value.k-input"
+    pulse_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(18) > span > span > input.k-formatted-value.k-input"
     pulse = str(randint(100, 120))
     # click and send keys(pulse)
     driver.find_element_by_css_selector(pulse_css).send_keys(pulse)
 
     # Location
-    loca_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(20) > span"
+    loca_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(20) > span"
     # click and send keys('a')
     driver.find_element_by_css_selector(loca_css).send_keys("a")
 
     # Breaths per minute
-    breath_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(22) > span > span > input.k-formatted-value.k-input"
+    breath_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(22) > span > span > input.k-formatted-value.k-input"
     breath_int = randint(22, 26)
 
     if breath_int % 2 != 0:
@@ -84,23 +84,23 @@ def vital(time):
     driver.find_element_by_css_selector(breath_css).send_keys(breaths)
 
     # Spo2
-    spo2_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(24) > span > span > input.k-formatted-value.k-input"
+    spo2_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(24) > span > span > input.k-formatted-value.k-input"
     spo2 = str(randint(97, 99))
     # click and send keys(spo2)
     driver.find_element_by_css_selector(spo2_css).send_keys(spo2)
 
     # taken
-    taken2_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(26) > span"
+    taken2_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(26) > span"
     # click and send keys('At')
     driver.find_element_by_css_selector(taken2_css).send_keys("a")
 
-    oxygen_css = "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(28) > span"
+    oxygen_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(28) > span"
 
     driver.find_element_by_css_selector(oxygen_css).send_keys("of")
 
     # click update
     standard_click(
-        "body > div:nth-child(65) > div.k-popup-edit-form.k-window-content.k-content > div > div.k-edit-buttons.k-state-default > a.k-button.k-button-icontext.k-primary.k-grid-update"
+        "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div.k-edit-buttons.k-state-default > a.k-button.k-button-icontext.k-primary.k-grid-update"
     )
 
     sleep(4)
