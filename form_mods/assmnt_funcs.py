@@ -181,10 +181,11 @@ def vital_signs():
     time_list = ["08:00 AM", "12:00 PM", "04:00 PM", "08:00 PM"]
 
     # if long shift, enter 4 VS
-    if "7" in shift_time and "3" in shift_time:
-        for t in time_list[:2]:
-            vital(t)
-    elif "7" in shift_time:
+    # if "" in shift_time and "3" in shift_time:
+    #     for t in time_list[:2]:
+    #         vital(t)
+    # el
+    if "8" in shift_time:
         for t in time_list:
             vital(t)
     else:
