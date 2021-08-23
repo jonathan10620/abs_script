@@ -195,7 +195,7 @@ def tar_click(css):
     sleep(2)
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
-    clear_and_enter_keys("#TreatmentDateTime", "2:15 PM")
+    clear_and_enter_keys("#TreatmentDateTime", "9:15 PM")
 
     standard_click("#btnSubmit")
     sleep(1)
@@ -205,7 +205,7 @@ def tar_click_custom(css):
     sleep(1)
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
-    clear_and_enter_keys("#TreatmentDateTime", "2:15 PM")
+    clear_and_enter_keys("#TreatmentDateTime", "9:15 PM")
     clear_and_enter_keys("#Comment", "No evidence of pain/fever")
 
     standard_click("#btnSubmit")

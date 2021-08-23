@@ -14,7 +14,7 @@ def mar_first_page():
     day_of_week = get_assmnt_date()
     if at_dads():
         if day_of_week == "Friday":
-            for x in dad_1_morn:
+            for x in dad_1_pm:
                 time_click_admin(x)
         elif day_of_week == "Saturday" or day_of_week == "Sunday":
             for x in dad_1_all:
@@ -43,7 +43,8 @@ def mar_second_page():
     sleep(5)
     if at_dads():
         if day_of_week == "Friday":
-            for x in dad_2_morn:
+
+            for x in dad_2_pm:
                 time_click_admin(x)
         elif day_of_week == "Saturday" or day_of_week == "Sunday":
             for x in dad_2_all:
@@ -63,7 +64,7 @@ def mar_third_page():
     sleep(5)
     if at_dads():
         if day_of_week == "Friday":
-            for x in dad_3_morn:
+            for x in dad_3_pm:
                 time_click_admin(x)
         elif day_of_week == "Saturday" or day_of_week == "Sunday":
             for x in dad_3_all:
