@@ -97,23 +97,43 @@ dad_3_pm = [
 ]
 
 mom_1_all = [
+    # carnitor 7 AM 7 PM
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a',
+
+    # vit d. 8am
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
+
+    #felbamate 7am, 1pm, 7pm
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[2]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[3]/a',
+
+    #keppra 7am 7pm
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[4]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[4]/td[4]/ul/li[2]/a',
+
+    # clobazam 7am, 1pm, 7pm
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[1]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[2]/a',
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[3]/a',
+
+    # cbd 7am
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li/a',
+
+    # cbd 7pm
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[7]/td[4]/ul/li/a',
+
+    # 7am salt
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[8]/td[4]/ul/li/a',
+
+    #7am calcium
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li/a',
+
+    # 7am centrum
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[10]/td[4]/ul/li/a',
 ]
+
 
 
 
@@ -142,7 +162,6 @@ mom_1_pm = [
     
 
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a',
-
 
 
     '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[3]/a',

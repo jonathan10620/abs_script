@@ -1,6 +1,8 @@
 from form_mods.assmnt_funcs import *
 from form_mods.mar_funcs import *
 from form_mods.tar_funcs import *
+from form_mods.io_funcs import *
+
 from helpers import *
 
 
@@ -66,3 +68,18 @@ def complete_tar_section():
     tar_first_page()
     sleep(2.5)
     tar_second_page()
+
+
+def complete_io_section():
+    enter_io_section()
+    sleep(2)
+    weekday = datetime.today().weekday()
+
+    if weekday == 0 or weekday == 4:
+        weekday_intake()
+        sleep(3)
+        weekday_output()
+    else:
+        weekend_intake()
+        sleep(3)
+        weekend_output()

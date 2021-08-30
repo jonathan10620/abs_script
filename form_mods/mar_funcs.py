@@ -24,7 +24,7 @@ def mar_first_page():
                 time_click_admin(x)
     else:
         if day_of_week == "Friday":
-            for x in mom_1_am:
+            for x in mom_1_pm:
                 time_click_admin(x)
         elif day_of_week == "Saturday" or day_of_week == "Sunday":
             for x in mom_1_all:

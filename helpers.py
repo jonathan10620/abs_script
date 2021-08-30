@@ -18,16 +18,18 @@ from nurse_form import (
     complete_mar_section,
     complete_tar_section,
     covid_survey,
+    complete_io_section
 )
 driver.implicitly_wait(15)
 
 
 
 def execute_nursing_form():
-    covid_survey()
-    complete_assmnt_section()
-    complete_mar_section()
-    complete_tar_section()
+    # covid_survey()
+    # complete_assmnt_section()
+    # complete_mar_section()
+    # complete_tar_section()
+    complete_io_section()
 
 
 def log_in():
