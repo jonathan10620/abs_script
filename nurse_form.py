@@ -5,6 +5,8 @@ from form_mods.io_funcs import *
 
 from helpers import *
 
+from datetime import datetime
+
 
 """
 nurse form handles highlevel completion of nursing form in whole
@@ -73,12 +75,16 @@ def complete_tar_section():
 def complete_io_section():
     enter_io_section()
     sleep(2)
-    weekday = datetime.today().weekday()
+    day = get_date()
+
+    weekday = datetime.strptime(day, '%m/%d/%Y').weekday()
 
     if weekday == 0 or weekday == 4:
         weekday_intake()
         sleep(3)
         weekday_output()
+        
+
     else:
         weekend_intake()
         sleep(3)

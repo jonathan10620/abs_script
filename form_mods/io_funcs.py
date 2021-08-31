@@ -17,21 +17,98 @@ def enter_io_section():
 
 # TODO weekday intake
 def weekday_intake():
-    # INTAKE
-    # depending on shift enter 5 feedings and 3 free water intakes
-    # feeding times can be 10am, 1pm, 5pm, 8pm
-    # free water times: 7:30pm
+    day = get_date()
 
-    # if weekend:
-    # do feeding entries for all
-    # do water time entries for all
-    # else:
-    # do entries list[2:]
-    # do entries for free water 7:30pm
+    feedings = [
+        [day, "4:30PM"],
+        [day, "8:00PM"],
+    ]
 
-    # save the entry
-    # sleep 2 second
-    pass
+    sleep(1.5)
+
+    for feed in feedings:
+        # click add intake#
+        standard_click("#gridIntake > div.k-header.k-grid-toolbar > a")
+        sleep(2)
+
+        # date/time field xpath: //*[@id="IoTime"] css: #IoTime
+        date_field = element_locator("#IoTime")
+        clear_and_enter_keys("#IoTime", feed[0])
+        date_field.send_keys(Keys.TAB)
+        clear_and_enter_keys("#IoTime", feed[1])
+
+        driver.find_element_by_xpath("//html").click()
+
+        standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[7]', "x")
+        # type field xpath: //*[@id="IoType"] css: #IoType
+        sleep(1)
+        span_type = element_locator(
+            '//*[@id="gridIntake"]/table/tbody/tr/td[7]/span[1]/span/span[1]', "x"
+        )
+        sleep(1)
+        span_type.click()
+        sleep(1)
+
+        drop_type = element_locator(
+            "#gridIntake > table > tbody > tr > td.k-edit-cell > span.k-widget.k-dropdown"
+        )
+        drop_type.send_keys("t")
+
+        # Intake Amount
+        standard_click("#gridIntake > table > tbody > tr > td:nth-child(8)")
+        clear_and_enter_keys("#IoAmount", "300")
+
+        # comment section
+        standard_click("#gridIntake > table > tbody > tr > td:nth-child(9)")
+        clear_and_enter_keys("#IoComments", "ketocal feeding")
+
+        # save button xpath: //*[@id="gridIntake"]/table/tbody/tr/td[1]/a css: #gridIntake > table > tbody > tr > td:nth-child(1) > a
+        standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[1]/a', "x")
+        sleep(3)
+
+    free_waters = [
+        [day, "7:30PM"],
+    ]
+
+    for fw in free_waters:
+        # click add intake
+        standard_click("#gridIntake > div.k-header.k-grid-toolbar > a")
+        sleep(2)
+
+        # date/time field xpath: //*[@id="IoTime"] css: #IoTime
+        date_field = element_locator("#IoTime")
+        clear_and_enter_keys("#IoTime", fw[0])
+        date_field.send_keys(Keys.TAB)
+        clear_and_enter_keys("#IoTime", fw[1])
+
+        driver.find_element_by_xpath("//html").click()
+
+        standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[7]', "x")
+
+        # type --> other
+        sleep(1)
+        span_type = element_locator(
+            '//*[@id="gridIntake"]/table/tbody/tr/td[7]/span[1]/span/span[1]', "x"
+        )
+        sleep(1)
+        span_type.click()
+        sleep(1)
+        drop_type = element_locator(
+            "#gridIntake > table > tbody > tr > td.k-edit-cell > span.k-widget.k-dropdown"
+        )
+        drop_type.send_keys("o")
+
+        # Intake Amount
+        standard_click("#gridIntake > table > tbody > tr > td:nth-child(8)")
+        clear_and_enter_keys("#IoAmount", "180")
+
+        # comment section
+        standard_click("#gridIntake > table > tbody > tr > td:nth-child(9)")
+        clear_and_enter_keys("#IoComments", "free water")
+
+        # save button xpath: //*[@id="gridIntake"]/table/tbody/tr/td[1]/a css: #gridIntake > table > tbody > tr > td:nth-child(1) > a
+        standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[1]/a', "x")
+        sleep(3)
 
 
 def weekend_intake():
@@ -164,9 +241,35 @@ def weekend_output():
         driver.find_element_by_xpath("//html").click()
 
         # save button xpath: //*[@id="gridIntake"]/table/tbody/tr/td[1]/a css: #gridIntake > table > tbody > tr > td:nth-child(1) > a
-        standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[1]/a', "x")
-        sleep(3)
+        standard_click('#gridOutput > table > tbody > tr > td:nth-child(1) > a')
+        sleep(2)
 
 
 def weekday_output():
-    pass
+    day = get_date()
+    first_out = ["4:30PM", "5:00PM", "4:10PM"]
+    second_out = ["6:50PM", "8:10PM", "7:30PM"]
+    third_out = ["11:30PM", "10:00PM", "9:50PM"]
+
+    output_times = [
+        [day, choice(first_out)],
+        [day, choice(second_out)],
+        [day, choice(third_out)],
+    ]
+
+    for output in output_times:
+        # click add ouput
+        standard_click("#gridOutput > div.k-header.k-grid-toolbar > a")
+        sleep(2)
+
+        # date/time field xpath: //*[@id="IoTime"] css: #IoTime
+        date_field = element_locator("#IoTime")
+        clear_and_enter_keys("#IoTime", output[0])
+        date_field.send_keys(Keys.TAB)
+        clear_and_enter_keys("#IoTime", output[1])
+
+        driver.find_element_by_xpath("//html").click()
+
+        # save button xpath: //*[@id="gridIntake"]/table/tbody/tr/td[1]/a css: #gridIntake > table > tbody > tr > td:nth-child(1) > a
+        standard_click('#gridOutput > table > tbody > tr > td:nth-child(1) > a')
+        sleep(2)
