@@ -14,10 +14,12 @@ def enter_io_section():
     except:
         standard_click('//*[@id="intake_li"]/a', "x")
 
-
-# TODO weekday intake
 def weekday_intake():
-    day = get_date()
+    raw_day = get_date()
+
+    fday = datetime.strptime(raw_day, '%m/%d/%Y')
+    day = fday.strftime('%m/%d/%Y')
+
 
     feedings = [
         [day, "4:30PM"],
@@ -112,7 +114,10 @@ def weekday_intake():
 
 
 def weekend_intake():
-    day = get_date()
+    raw_day = get_date()
+
+    fday = datetime.strptime(raw_day, '%m/%d/%Y')
+    day = fday.strftime('%m/%d/%Y')
 
     feedings = [
         [day, "9:00AM"],
@@ -211,7 +216,10 @@ def weekend_intake():
 
 
 def weekend_output():
-    day = get_date()
+    raw_day = get_date()
+
+    fday = datetime.strptime(raw_day, '%m/%d/%Y')
+    day = fday.strftime('%m/%d/%Y')
 
     first_out = ["9:30AM", "10:15AM", "8:15AM"]
     second_out = ["12:00PM", "1:20PM", "2:30PM"]
@@ -246,7 +254,10 @@ def weekend_output():
 
 
 def weekday_output():
-    day = get_date()
+    raw_day = get_date()
+
+    fday = datetime.strptime(raw_day, '%m/%d/%Y')
+    day = fday.strftime('%m/%d/%Y')
     first_out = ["4:30PM", "5:00PM", "4:10PM"]
     second_out = ["6:50PM", "8:10PM", "7:30PM"]
     third_out = ["11:30PM", "10:00PM", "9:50PM"]

@@ -7,6 +7,8 @@ from helpers import *
 
 from datetime import datetime
 
+from random import randint
+
 
 """
 nurse form handles highlevel completion of nursing form in whole
@@ -89,3 +91,21 @@ def complete_io_section():
         weekend_intake()
         sleep(3)
         weekend_output()
+
+def complete_note_section():
+    standard_click('#notes_li > a')
+    sleep(2)
+    standard_click('#refreshArea > div > div > div > div:nth-child(2) > div:nth-child(3) > a')
+    sleep(2)
+
+    note = f'CPAP placed on patient at 8:{randint(0,3)}{randint(0,9)}pm'
+    date = f'{get_date()} 9:{randint(1,3)}0 PM'
+
+    try:
+        clear_and_enter_keys('#NoteDate', date)
+    except:
+        input('error sending string to notedate')
+    
+    clear_and_enter_keys('#NurseNote', note)
+    sleep(1)
+    standard_click('#btnSave')
