@@ -66,3 +66,12 @@ mon_2_eve = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[
 
 
 mon_extra_eve = ['//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[2]/a','//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[2]/a']
+
+
+
+extra_tar_call = {
+    'sat': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(7) > a',
+    'sun': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(1) > a',
+    'mon': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(2) > a',
+    'fri': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(6) > a',
+}

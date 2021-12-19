@@ -1,1 +1,16 @@
-do intake and output functions
+add cpap for saturday shift at dads
+
+
+mom_1_am = [
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[1]/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[1]/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[3]/td[4]/ul/li[2]/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[4]/td[4]/ul/li[1]/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[1]/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li[2]/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[6]/td[4]/ul/li/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[8]/td[4]/ul/li/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[9]/td[4]/ul/li/a',
+    '//*[@id="gridCustomerMedication"]/table/tbody/tr[10]/td[4]/ul/li/a',
+]

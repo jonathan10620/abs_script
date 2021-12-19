@@ -189,6 +189,33 @@ def time_click_admin(x_str):
     # TODO
     standard_click("btnSubmit", "id")
 
+
+def exact_time_click_admin(x_str):
+    time_click = element_locator(x_str, mode="x")
+    try:
+        sleep(1)
+        time_click.click()
+    except:
+        print("unable to find/click elemnt")
+        return
+    sleep(2)
+
+    # click admin by field 'Brightstar'
+    drop_down_handler(
+        "#divRequiredComment > div.row > div > span.k-widget.k-dropdown", "b"
+    )
+    sleep(1)
+
+    clear_and_enter_keys("#AdminDate", get_date())
+    sleep(1)
+
+    time_to_enter = time_click.text.replace("00", random_str_time_tail)
+    clear_and_enter_keys("#AdminDateTime", time_to_enter)
+    sleep(1.5)
+
+    # TODO
+    standard_click("btnSubmit", "id")
+
 # TAR helpers
 def tar_click(css):
     standard_click(css, "x")
@@ -196,7 +223,6 @@ def tar_click(css):
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
     clear_and_enter_keys("#TreatmentDateTime", "8:15 PM")
-
     standard_click("#btnSubmit")
     sleep(1)
 
@@ -246,3 +272,115 @@ def get_assmnt_date():
 
 def at_dads():
     return 'DAD' in element_locator('//*[@id="CustomerName"]', 'x').text
+
+def milk():
+    time_x = '//*[@id="gridCustomerMedication"]/table/tbody/tr[5]/td[4]/ul/li/a'
+    time_click = element_locator(time_x, mode="x")
+    try:
+        sleep(1)
+        time_click.click()
+    except:
+        print("unable to find/click elemnt")
+        return
+    sleep(2)
+
+    action_drop_down_x = '//*[@id="AdministrationActionTypeId"]'
+    # element_locator(action_drop_down_x, mode="x").click()
+    element_locator('#divBody > div:nth-child(9) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div.row > div > span.k-widget.k-dropdown').click()
+    print('top span above direct input click worked')
+    sleep(2)
+    element_locator('#AdministrationActionTypeId_listbox > li:nth-child(5)').click()
+
+
+
+    sleep(0.5)
+
+    drop_down_handler(
+        "#divRequiredComment > div.row > div > span.k-widget.k-dropdown", "b"
+    )
+    sleep(1)
+
+    clear_and_enter_keys("#AdminDate", get_date())
+    sleep(1)
+
+    # TODO
+    time_to_enter = time_click.text.replace("00", random_str_time_tail)
+    clear_and_enter_keys("#AdminDateTime", time_to_enter)
+    sleep(1)
+
+    standard_click("btnSubmit", "id")
+
+
+
+def mar_exception(element, text):
+    time_click = element_locator(element, mode="x")
+
+    try:
+        sleep(1)
+        time_click.click()
+    except:
+        print("unable to find/click elemnt")
+        return
+    sleep(2)
+
+
+    element_locator('#divBody > div:nth-child(9) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div.row > div > span.k-widget.k-dropdown').click()
+    sleep(2)
+    element_locator('#AdministrationActionTypeId_listbox > li:nth-child(5)').click()
+    sleep(1.5)
+
+    drop_down_handler(
+        "#divRequiredComment > div.row > div > span.k-widget.k-dropdown", "b"
+    )
+
+    sleep(1)
+
+    clear_and_enter_keys('#Comment', text)
+
+    clear_and_enter_keys("#AdminDate", get_date())
+    sleep(1)
+
+    # TODO
+    time_to_enter = time_click.text.replace("00", random_str_time_tail)
+    clear_and_enter_keys("#AdminDateTime", time_to_enter)
+    sleep(1)
+    standard_click("btnSubmit", "id")
+
+
+
+def salt():
+    time_x = '//*[@id="gridCustomerMedication"]/table/tbody/tr[8]/td[4]/ul/li/a'
+
+    time_click = element_locator(time_x, mode="x")
+    try:
+        sleep(1)
+        time_click.click()
+    except:
+        print("unable to find/click elemnt")
+        return
+    sleep(2)
+
+    action_drop_down_x = '//*[@id="AdministrationActionTypeId"]'
+    # element_locator(action_drop_down_x, mode="x").click()
+    element_locator('#divBody > div:nth-child(9) > div:nth-child(1) > div:nth-child(1) > div:nth-child(4) > div.row > div > span.k-widget.k-dropdown').click()
+    sleep(2)
+    element_locator('#AdministrationActionTypeId_listbox > li:nth-child(5)').click()
+
+    sleep(1.5)
+
+    drop_down_handler(
+        "#divRequiredComment > div.row > div > span.k-widget.k-dropdown", "b"
+    )
+    sleep(1)
+
+    clear_and_enter_keys('#Comment', 'Given by Night nurse' )
+
+    clear_and_enter_keys("#AdminDate", get_date())
+    sleep(1)
+
+    # TODO
+    time_to_enter = time_click.text.replace("00", random_str_time_tail)
+    clear_and_enter_keys("#AdminDateTime", time_to_enter)
+    sleep(1)
+
+    standard_click("btnSubmit", "id")

@@ -65,6 +65,9 @@ def complete_mar_section():
         mar_second_page()
         sleep(2.5)
         mar_third_page()
+    else:
+        sleep(2.5)
+        mar_second_page()
 
 def complete_tar_section():
     enter_tar_section()
@@ -85,8 +88,6 @@ def complete_io_section():
         weekday_intake()
         sleep(3)
         weekday_output()
-        
-
     else:
         weekend_intake()
         sleep(3)
