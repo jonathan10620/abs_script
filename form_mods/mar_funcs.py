@@ -42,7 +42,7 @@ def mar_first_page():
 def mar_second_page():
     day_of_week = get_assmnt_date()
     standard_click(
-        "#gridCustomerMedication > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > div > ul > li:nth-child(3) > a"
+        '#gridCustomerMedication > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > div > ul > li:nth-child(2) > a'
     )
     sleep(5)
     if at_dads():
@@ -77,7 +77,7 @@ def mar_second_page():
 def mar_third_page():
     day_of_week = get_assmnt_date()
     standard_click(
-        "#gridCustomerMedication > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > div > ul > li:nth-child(4) > a"
+        '#gridCustomerMedication > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > div > ul > li:nth-child(3) > a'
     )
     sleep(5)
     if at_dads():

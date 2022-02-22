@@ -259,6 +259,14 @@ def go_to_second_tar_page():
         print("clicking far right button worked")
     except Exception:
         pass
+    try:
+        driver.find_element_by_css_selector(
+            '#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap.k-pager-md > div > ul > li:nth-child(2) > a'
+        ).click()
+        print("clicking 2 worked")
+    except Exception:
+        pass
+
 
 def get_assmnt_date():
     # function return day of the week in str format of assmnt date

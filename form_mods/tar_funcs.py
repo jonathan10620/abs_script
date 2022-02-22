@@ -33,7 +33,7 @@ def tar_first_page():
             tar_click(css)
             sleep(2.5)
     elif day == "Friday":
-        for css in fri_1_am:
+        for css in fri_1_pm:
             tar_click(css)
             sleep(2.5)
 
@@ -48,11 +48,10 @@ def tar_second_page():
             tar_click(css)
             sleep(2.5)
         sleep(3)
+
         tar_click(sat_extra_all[1])
         sleep(3)
         tar_click_custom(sat_extra_all[0])
-        sleep(3)
-        tar_click(extra_tar_call['sat'])
 
     elif day == "Sunday":
         for css in sun_2_all:
@@ -62,8 +61,6 @@ def tar_second_page():
         tar_click(sun_extra_all[1])
         sleep(3)
         tar_click_custom(sun_extra_all[0])
-        sleep(3)
-        tar_click(extra_tar_call['sun'])
         
     elif day == "Monday":
         for css in mon_2_eve:
@@ -73,21 +70,15 @@ def tar_second_page():
         tar_click(mon_extra_eve[1])
         sleep(3)
         tar_click_custom(mon_extra_eve[0])
-        sleep(3)
-        tar_click(extra_tar_call['mon'])
+
         
     elif day == "Friday":
-        for css in fri_2_am:
+        for css in fri_2_pm:
             tar_click(css)
             sleep(2.5)
         sleep(3)
-        tar_click(fri_extra_am[1])
+        tar_click(fri_extra_pm[1])
         sleep(3)
-        tar_click_custom(fri_extra_am[0])
-        sleep(3)
-        tar_click(extra_tar_call['fri'])
-    
-
-
-
+        tar_click_custom(fri_extra_pm[0])
+        
     print("second tar page done")

@@ -14,6 +14,21 @@ def enter_io_section():
     except:
         standard_click('//*[@id="intake_li"]/a', "x")
 
+
+
+def click_new_feed():
+    try: 
+        standard_click('#gridIntake > div.k-toolbar.k-grid-toolbar > a > span')
+    except:
+        print('clicking span for new feeed did not work`')
+        sleep(2)
+        standard_click('#gridIntake > div.k-toolbar.k-grid-toolbar > a')
+
+
+
+
+
+
 def weekday_intake():
     raw_day = get_date()
 
@@ -30,7 +45,8 @@ def weekday_intake():
 
     for feed in feedings:
         # click add intake#
-        standard_click("#gridIntake > div.k-header.k-grid-toolbar > a")
+        click_new_feed()
+        
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime
@@ -74,7 +90,8 @@ def weekday_intake():
 
     for fw in free_waters:
         # click add intake
-        standard_click("#gridIntake > div.k-header.k-grid-toolbar > a")
+        
+        standard_click("#gridIntake > div.k-toolbar.k-grid-toolbar > a")
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime
@@ -130,7 +147,7 @@ def weekend_intake():
 
     for feed in feedings:
         # click add intake#
-        standard_click("#gridIntake > div.k-header.k-grid-toolbar > a")
+        standard_click("#gridIntake > div.k-toolbar.k-grid-toolbar > a")
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime
@@ -176,7 +193,7 @@ def weekend_intake():
     for fw in free_waters:
 
         # click add intake
-        standard_click("#gridIntake > div.k-header.k-grid-toolbar > a")
+        standard_click("#gridIntake > div.k-toolbar.k-grid-toolbar > a")
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime
@@ -237,7 +254,7 @@ def weekend_output():
 
     for output in output_times:
         # click add ouput
-        standard_click("#gridOutput > div.k-header.k-grid-toolbar > a")
+        standard_click("#gridOutput > div.k-toolbar.k-grid-toolbar > a")
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime
@@ -270,7 +287,8 @@ def weekday_output():
 
     for output in output_times:
         # click add ouput
-        standard_click("#gridOutput > div.k-header.k-grid-toolbar > a")
+        
+        standard_click("#gridOutput > div.k-toolbar.k-grid-toolbar > a")
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime

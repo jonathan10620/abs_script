@@ -11,96 +11,137 @@ def vital(time):
     sleep(3)
 
     # enter time (be sure to distinguish am and pm)
-    time_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(2) > span > span > input"
+    
+    time_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(2) > span > span > input'
 
     clear_and_enter_keys(time_css, time)
     sleep(2)
-    # BP
-    input_text = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(4) > span > span > input.k-formatted-value.k-input"
+    # BP WORKS
+    sys_input_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(4) > span > span > input:nth-child(2)'
+    sys_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(4) > span > span'
 
     sys_val = str(randint(100, 115))
 
-    driver.find_element_by_css_selector(input_text).send_keys(sys_val)
+    standard_click(sys_span)
+    driver.find_element_by_css_selector(sys_input_css).send_keys(sys_val)
 
-    dia_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(6) > span > span > input.k-formatted-value.k-input"
+    # SPAN AND INPUT CSS TO WORK
+    dia_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(6) > span > span'
+    dia_input = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(6) > span > span > input:nth-child(2)'
+    standard_click(dia_span)
 
     if int(sys_val) < 108:
         # enter dias randrange 66-72
         dia_val = str(randint(66, 72))
-        driver.find_element_by_css_selector(dia_css).send_keys(dia_val)
+        driver.find_element_by_css_selector(dia_input).send_keys(dia_val)
     else:
         dia_val = str(randint(70, 78))
-        driver.find_element_by_css_selector(dia_css).send_keys(dia_val)
-
+        driver.find_element_by_css_selector(dia_input).send_keys(dia_val)
     # POSITION
-    # if '8' in time:
-    pos_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(8) > span"
-
+    # if '8' in time
+    pos_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(8) > span'
+    
+    pos_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(8) > span > input'
+    standard_click(pos_span)
+    
     if "8" in time:
         # click and send keys('l')
-        driver.find_element_by_css_selector(pos_css).send_keys("l")
+        driver.find_element_by_css_selector(pos_span).send_keys("l")
     else:
-        driver.find_element_by_css_selector(pos_css).send_keys("si")
+        driver.find_element_by_css_selector(pos_span).send_keys("si")
+
+
+
+
 
     # Location
-    loc_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(10) > span"
+    loc_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(10) > span'
 
-    driver.find_element_by_css_selector(loc_css).send_keys("Left Arm")
+    loc_el = driver.find_element_by_css_selector(loc_css)
+    loc_el.send_keys("Left Arm")
+    loc_el.send_keys(Keys.ENTER)
+
 
     # TEMP
-    temp_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(12) > span > span > input.k-formatted-value.k-input"
+    temp_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(12) > span > span'
+    temp_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(12) > span > span > input:nth-child(2)'
 
     temp = str(round(uniform(97.8, 98.2), 1))
-
+    standard_click(temp_span)
     # click and send keys(temp)
     driver.find_element_by_css_selector(temp_css).send_keys(temp)
 
+
+
+
     # taken by
-    taken_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(16) > span"
+
+    taken_css = "body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(16) > span"
     # click and send keys('a')
-    driver.find_element_by_css_selector(taken_css).send_keys("a")
+    taken_el = driver.find_element_by_css_selector(taken_css)
+    taken_el.send_keys("a")
+    taken_el.send_keys(Keys.ENTER)
 
     # PUlSE
-    pulse_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(18) > span > span > input.k-formatted-value.k-input"
+    pulse_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(18) > span > span'
+    pulse_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(18) > span > span > input:nth-child(2)'
     pulse = str(randint(100, 120))
     # click and send keys(pulse)
+    standard_click(pulse_span)
     driver.find_element_by_css_selector(pulse_css).send_keys(pulse)
 
     # Location
-    loca_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(20) > span"
+    loca_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(20) > span'
     # click and send keys('a')
-    driver.find_element_by_css_selector(loca_css).send_keys("a")
+
+    loca_el = driver.find_element_by_css_selector(loca_css)
+    loca_el.send_keys("a")
+    loca_el.send_keys(Keys.ENTER)
 
     # Breaths per minute
-    breath_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(22) > span > span > input.k-formatted-value.k-input"
+    breath_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(22) > span > span'
+
+    breath_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(22) > span > span > input:nth-child(2)'
     breath_int = randint(22, 26)
+
 
     if breath_int % 2 != 0:
         breath_int += 1
 
     breaths = str(breath_int)
+    standard_click(breath_span)
 
     # click and send keys(breaths)
     driver.find_element_by_css_selector(breath_css).send_keys(breaths)
 
+
+
+
     # Spo2
-    spo2_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(24) > span > span > input.k-formatted-value.k-input"
+
+    spo2_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(24) > span > span'
+
+    spo2_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(24) > span > span > input:nth-child(2)'
     spo2 = str(randint(97, 99))
+
     # click and send keys(spo2)
+    standard_click(spo2_span)
     driver.find_element_by_css_selector(spo2_css).send_keys(spo2)
 
     # taken
-    taken2_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(26) > span"
+    taken2_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(26) > span'
     # click and send keys('At')
-    driver.find_element_by_css_selector(taken2_css).send_keys("a")
+    taken_el = driver.find_element_by_css_selector(taken2_css)
+    taken_el.send_keys("a")
+    taken_el.send_keys(Keys.ENTER)
 
-    oxygen_css = "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div:nth-child(28) > span"
+    oxygen_css = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(28) > span'
 
     driver.find_element_by_css_selector(oxygen_css).send_keys("of")
 
     # click update
     standard_click(
-        "body > div:nth-child(66) > div.k-popup-edit-form.k-window-content.k-content > div > div.k-edit-buttons.k-state-default > a.k-button.k-button-icontext.k-primary.k-grid-update"
+        'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div.k-edit-buttons.k-state-default > a.k-button.k-button-icontext.k-primary.k-grid-update'
     )
 
     sleep(4)

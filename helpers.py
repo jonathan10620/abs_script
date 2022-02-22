@@ -19,7 +19,8 @@ from nurse_form import (
     complete_tar_section,
     covid_survey,
     complete_io_section,
-    complete_note_section
+    complete_note_section,
+    complete_assmnt_section
 )
 driver.implicitly_wait(15)
 

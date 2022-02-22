@@ -1,8 +1,8 @@
-fri_1_am = [
+fri_1_pm = [
     f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[6]/a'
     for n in range(2, 11)
 ]
-fri_2_am = [
+fri_2_pm = [
     '//*[@id="gridCustomerTreatment"]/table/tbody/tr[1]/td[4]/ul/li[7]/a',
     '//*[@id="gridCustomerTreatment"]/table/tbody/tr[2]/td[4]/ul/li[6]/a',
     '//*[@id="gridCustomerTreatment"]/table/tbody/tr[4]/td[4]/ul/li[6]/a',
@@ -11,7 +11,7 @@ fri_2_am = [
     '//*[@id="gridCustomerTreatment"]/table/tbody/tr[7]/td[4]/ul/li[11]/a',
 ]
 
-fri_extra_am = [
+fri_extra_pm = [
     '//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[6]/a',
     '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[6]/a',
 ]
@@ -33,8 +33,7 @@ sat_2_all = [
 ]
 sat_extra_all = [
     '//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[7]/a',
-
-    '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[7]/a',
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[7]/a'
 ]
 
 
@@ -65,13 +64,9 @@ mon_2_eve = [f'//*[@id="gridCustomerTreatment"]/table/tbody/tr[{n}]/td[4]/ul/li[
 
 
 
-mon_extra_eve = ['//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[2]/a','//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[2]/a']
+mon_extra_eve = [
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[2]/a',
+    '//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[2]/a',
+]
 
 
-
-extra_tar_call = {
-    'sat': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(7) > a',
-    'sun': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(1) > a',
-    'mon': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(2) > a',
-    'fri': '#gridOtherTreatment > table > tbody > tr.k-alt > td:nth-child(5) > ul > li:nth-child(6) > a',
-}
