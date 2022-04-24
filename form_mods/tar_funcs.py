@@ -8,7 +8,7 @@ import sys
 
 day = ""
 
-
+# works as of 4/23/2022
 def enter_tar_section():
     standard_click("#tar_li > a")
     sleep(4)
@@ -21,36 +21,39 @@ def enter_tar_section():
 
 def tar_first_page():
     if day == "Saturday":
-        for css in sat_1_all:
-            tar_click(css)
-            sleep(2.5)
+        if at_dads():
+            for x in sat_1_all:
+                tar_click(x)
+                sleep(3)
+        else:
+            # at moms tar Sat
+            pass
     elif day == "Sunday":
-        for css in sun_1_all:
-            tar_click(css)
-            sleep(2.5)
-    elif day == "Monday":
-        for css in mon_1_eve:
-            tar_click(css)
-            sleep(2.5)
-    elif day == "Friday":
-        for css in fri_1_pm:
-            tar_click(css)
-            sleep(2.5)
+        if at_dads():
+            for x in sun_1_all:
+                tar_click(x)
+                sleep(3)
+        else:
+            # at at moms tar Sunday
+            pass
 
     print("first tar page complete")
 
 
 def tar_second_page():
     go_to_second_tar_page()
-    sleep(5)
+    sleep(3)
+    input('press enter to continue for second tar')
+    
     if day == "Saturday":
         for css in sat_2_all:
             tar_click(css)
-            sleep(2.5)
-        sleep(3)
-
+            sleep(3)
+        sleep(5)
+        input('ready for tar extra?')
         tar_click(sat_extra_all[1])
         sleep(3)
+        input('ready for tar extra 2?')
         tar_click_custom(sat_extra_all[0])
 
     elif day == "Sunday":
@@ -58,27 +61,23 @@ def tar_second_page():
             tar_click(css)
             sleep(2.5)
         sleep(3)
-        tar_click(sun_extra_all[1])
-        sleep(3)
-        tar_click_custom(sun_extra_all[0])
-        
-    elif day == "Monday":
-        for css in mon_2_eve:
-            tar_click(css)
-            sleep(2.5)
-        sleep(3)
-        tar_click(mon_extra_eve[1])
-        sleep(3)
-        tar_click_custom(mon_extra_eve[0])
 
+        # record input tar
+        tar_click('//*[@id="gridCustomerTreatment"]/table/tbody/tr[7]/td[4]/ul/li[1]/a')
+        sleep(3)
+
+        try:
+            sleep(3)
+            input('ready for tar extra?')
+            tar_click_custom('//*[@id="gridOtherTreatment"]/table/tbody/tr[2]/td[5]/ul/li[1]/a')
+        except:
+            print('error when trying to do mom tar')
+        sleep(3)
+        try:
+            input('ready for tar extra 2?')
+            tar_click_custom('//*[@id="gridOtherTreatment"]/table/tbody/tr[1]/td[5]/ul/li[1]/a')
+        except:
+            print('error doing pain/fever tar')
         
-    elif day == "Friday":
-        for css in fri_2_pm:
-            tar_click(css)
-            sleep(2.5)
-        sleep(3)
-        tar_click(fri_extra_pm[1])
-        sleep(3)
-        tar_click_custom(fri_extra_pm[0])
         
     print("second tar page done")

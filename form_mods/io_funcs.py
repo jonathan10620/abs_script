@@ -27,8 +27,6 @@ def click_new_feed():
 
 
 
-
-
 def weekday_intake():
     raw_day = get_date()
 
@@ -41,7 +39,7 @@ def weekday_intake():
         [day, "8:00PM"],
     ]
 
-    sleep(1.5)
+    sleep(3.5)
 
     for feed in feedings:
         # click add intake#
@@ -53,19 +51,20 @@ def weekday_intake():
         date_field = element_locator("#IoTime")
         clear_and_enter_keys("#IoTime", feed[0])
         date_field.send_keys(Keys.TAB)
+        sleep(1)
         clear_and_enter_keys("#IoTime", feed[1])
-
-        driver.find_element_by_xpath("//html").click()
+        sleep(1)
+        date_field.send_keys(Keys.TAB)
 
         standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[7]', "x")
         # type field xpath: //*[@id="IoType"] css: #IoType
-        sleep(1)
+        sleep(2)
         span_type = element_locator(
             '//*[@id="gridIntake"]/table/tbody/tr/td[7]/span[1]/span/span[1]', "x"
         )
-        sleep(1)
+        sleep(2)
         span_type.click()
-        sleep(1)
+        sleep(2)
 
         drop_type = element_locator(
             "#gridIntake > table > tbody > tr > td.k-edit-cell > span.k-widget.k-dropdown"
@@ -90,8 +89,7 @@ def weekday_intake():
 
     for fw in free_waters:
         # click add intake
-        
-        standard_click("#gridIntake > div.k-toolbar.k-grid-toolbar > a")
+        click_new_feed()
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime
@@ -99,8 +97,9 @@ def weekday_intake():
         clear_and_enter_keys("#IoTime", fw[0])
         date_field.send_keys(Keys.TAB)
         clear_and_enter_keys("#IoTime", fw[1])
+        sleep(1)
+        date_field.send_keys(Keys.TAB)
 
-        driver.find_element_by_xpath("//html").click()
 
         standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[7]', "x")
 
@@ -143,30 +142,34 @@ def weekend_intake():
         [day, "8:00PM"],
     ]
 
-    sleep(1.5)
+    sleep(3)
 
     for feed in feedings:
         # click add intake#
-        standard_click("#gridIntake > div.k-toolbar.k-grid-toolbar > a")
+        click_new_feed()
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime
         date_field = element_locator("#IoTime")
         clear_and_enter_keys("#IoTime", feed[0])
         date_field.send_keys(Keys.TAB)
+        sleep(1)
         clear_and_enter_keys("#IoTime", feed[1])
+        sleep(1)
+        date_field.send_keys(Keys.TAB)
 
-        driver.find_element_by_xpath("//html").click()
+
+        # driver.find_element_by_xpath("//html").click()
 
         standard_click('//*[@id="gridIntake"]/table/tbody/tr/td[7]', "x")
         # type field xpath: //*[@id="IoType"] css: #IoType
-        sleep(1)
+        sleep(2)
         span_type = element_locator(
             '//*[@id="gridIntake"]/table/tbody/tr/td[7]/span[1]/span/span[1]', "x"
         )
-        sleep(1)
+        sleep(2)
         span_type.click()
-        sleep(1)
+        sleep(2)
 
         drop_type = element_locator(
             "#gridIntake > table > tbody > tr > td.k-edit-cell > span.k-widget.k-dropdown"
@@ -193,7 +196,7 @@ def weekend_intake():
     for fw in free_waters:
 
         # click add intake
-        standard_click("#gridIntake > div.k-toolbar.k-grid-toolbar > a")
+        click_new_feed()
         sleep(2)
 
         # date/time field xpath: //*[@id="IoTime"] css: #IoTime

@@ -18,7 +18,6 @@ calls upon functions from assmnt_funcs and others to modularize functionality
 
 def covid_survey():
     # bypasses section if no covid survey prompt, saves time1
-
     check = driver.find_element_by_id("hasCovidNo")
 
     if not check.is_displayed():
@@ -58,12 +57,11 @@ def complete_assmnt_section():
 
 def complete_mar_section():
     enter_mar_section()
-    mar_first_page()
-    
+    # mar_first_page()
     if at_dads():
         sleep(2.5)
-        mar_second_page()
-        sleep(2.5)
+        # mar_second_page()
+        # sleep(2.5)
         mar_third_page()
     else:
         sleep(2.5)
@@ -75,7 +73,6 @@ def complete_tar_section():
     tar_first_page()
     sleep(2.5)
     tar_second_page()
-
 
 def complete_io_section():
     enter_io_section()

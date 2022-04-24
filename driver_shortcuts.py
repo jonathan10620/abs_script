@@ -218,7 +218,12 @@ def exact_time_click_admin(x_str):
 
 # TAR helpers
 def tar_click(css):
-    standard_click(css, "x")
+    try:
+        standard_click(css, "x")
+    except:
+        print("unable to find/click elemnt")
+        
+        return
     sleep(2)
     clear_and_enter_keys("#TreatmentDate", get_date())
     sleep(1)
@@ -237,35 +242,15 @@ def tar_click_custom(css):
     standard_click("#btnSubmit")
     sleep(2)
 
+
 def go_to_second_tar_page():
+
     try:
-        driver.find_element_by_css_selector(
-            "#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a.k-link.k-pager-nav.k-pager-last > span"
-        ).click()
-        print("clicking two worked")
+        standard_click('//*[@id="gridCustomerTreatment"]/div[2]/a[3]', "x")
+        print('clicking > worked')
     except Exception:
-        pass
-    try:
-        driver.find_element_by_css_selector(
-            "#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a:nth-child(4)"
-        ).click()
-        print("clicking right button worked")
-    except Exception:
-        pass
-    try:
-        driver.find_element_by_css_selector(
-            "#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap > a.k-link.k-pager-nav.k-pager-last > span"
-        ).click()
-        print("clicking far right button worked")
-    except Exception:
-        pass
-    try:
-        driver.find_element_by_css_selector(
-            '#gridCustomerTreatment > div.k-pager-wrap.k-grid-pager.k-widget.k-floatwrap.k-pager-md > div > ul > li:nth-child(2) > a'
-        ).click()
-        print("clicking 2 worked")
-    except Exception:
-        pass
+        print('clicking > failed')
+
 
 
 def get_assmnt_date():

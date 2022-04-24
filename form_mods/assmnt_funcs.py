@@ -21,6 +21,7 @@ def vital(time):
     sys_span = 'body > div.k-widget.k-window.k-display-inline-flex > div.k-popup-edit-form.k-window-content > div > div:nth-child(4) > span > span'
 
     sys_val = str(randint(100, 115))
+    
 
     standard_click(sys_span)
     driver.find_element_by_css_selector(sys_input_css).send_keys(sys_val)

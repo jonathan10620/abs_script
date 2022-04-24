@@ -66,10 +66,13 @@ def mar_second_page():
                 exact_time_click_admin(x)
             # do clobazam
             time_click_admin(mom_2_clobazam)
+            time_click_admin('//*[@id="gridCustomerMedication"]/table/tbody/tr[10]/td[4]/ul/li/a')
         else:
             # do feedings
             for x in mom_feedings[2:]:
                 exact_time_click_admin(x)
+                
+            time_click_admin('//*[@id="gridCustomerMedication"]/table/tbody/tr[10]/td[4]/ul/li/a')
 
     print("second mar page done")
 
@@ -81,19 +84,10 @@ def mar_third_page():
     )
     sleep(5)
     if at_dads():
-        if day_of_week == "Friday":
-            # 7pm onfi
-            time_click_admin('//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a')
-            sleep(1)
-            milk()
-        elif day_of_week == "Saturday" or day_of_week == "Sunday":
+        for x in dad_3_all:
+            time_click_admin(x)
+            sleep(4)
+
             # 2pm and 7pm onfi
-            time_click_admin('//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a')
-            sleep(1)
-            time_click_admin('//*[@id="gridCustomerMedication"]/table/tbody/tr[2]/td[4]/ul/li/a')
-            sleep(1)
-            milk()
-        elif day_of_week == "Monday":
-            time_click_admin('//*[@id="gridCustomerMedication"]/table/tbody/tr[1]/td[4]/ul/li[2]/a')
-            sleep(1)
-            milk()
+        sleep(3)
+        milk()
